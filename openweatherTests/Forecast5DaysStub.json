@@ -1,0 +1,138 @@
+{
+    "city": {
+        "id": 6324376,
+        "name": "Pinar de Chamartin",
+        "coord": {
+            "lon": -3.66836,
+            "lat": 40.479031
+        },
+        "country": "ES",
+        "population": 0
+    },
+    "cod": "200",
+    "message": 0.007,
+    "cnt": 5,
+    "list": [
+             {
+             "dt": 1450353600,
+             "temp": {
+             "day": 276.03,
+             "min": 274.64,
+             "max": 276.03,
+             "night": 274.64,
+             "eve": 276.03,
+             "morn": 276.03
+             },
+             "pressure": 969.53,
+             "humidity": 84,
+             "weather": [
+                         {
+                         "id": 802,
+                         "main": "Clouds",
+                         "description": "scattered clouds",
+                         "icon": "03n"
+                         }
+                         ],
+             "speed": 1.22,
+             "deg": 152,
+             "clouds": 32
+             },
+             {
+             "dt": 1450440000,
+             "temp": {
+             "day": 285.97,
+             "min": 274.08,
+             "max": 287.55,
+             "night": 274.18,
+             "eve": 280.09,
+             "morn": 274.08
+             },
+             "pressure": 969.39,
+             "humidity": 78,
+             "weather": [
+                         {
+                         "id": 800,
+                         "main": "Clear",
+                         "description": "sky is clear",
+                         "icon": "01d"
+                         }
+                         ],
+             "speed": 1.72,
+             "deg": 100,
+             "clouds": 0
+             },
+             {
+             "dt": 1450526400,
+             "temp": {
+             "day": 285.62,
+             "min": 271.98,
+             "max": 287.28,
+             "night": 275.14,
+             "eve": 280.29,
+             "morn": 271.98
+             },
+             "pressure": 965.9,
+             "humidity": 75,
+             "weather": [
+                         {
+                         "id": 801,
+                         "main": "Clouds",
+                         "description": "few clouds",
+                         "icon": "02d"
+                         }
+                         ],
+             "speed": 1.66,
+             "deg": 106,
+             "clouds": 24
+             },
+             {
+             "dt": 1450612800,
+             "temp": {
+             "day": 285.98,
+             "min": 273.21,
+             "max": 287.46,
+             "night": 277.9,
+             "eve": 280.33,
+             "morn": 273.21
+             },
+             "pressure": 964.82,
+             "humidity": 70,
+             "weather": [
+                         {
+                         "id": 801,
+                         "main": "Clouds",
+                         "description": "few clouds",
+                         "icon": "02d"
+                         }
+                         ],
+             "speed": 1.91,
+             "deg": 172,
+             "clouds": 12
+             },
+             {
+             "dt": 1450699200,
+             "temp": {
+             "day": 283.75,
+             "min": 276.34,
+             "max": 284.73,
+             "night": 277.27,
+             "eve": 278.55,
+             "morn": 279.63
+             },
+             "pressure": 971.38,
+             "humidity": 98,
+             "weather": [
+                         {
+                         "id": 500,
+                         "main": "Rain",
+                         "description": "light rain",
+                         "icon": "10d"
+                         }
+                         ],
+             "speed": 0.16,
+             "deg": 111,
+             "clouds": 88,
+             "rain": 0.77
+             }
+             ]
+}

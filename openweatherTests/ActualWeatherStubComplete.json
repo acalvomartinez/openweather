@@ -1,0 +1,47 @@
+{
+    "coord": {
+        "lon": -3.67,
+        "lat": 40.48
+    },
+    "weather": [
+                {
+                "id": 800,
+                "main": "Clear",
+                "description": "Sky is Clear",
+                "icon": "01d"
+                }
+                ],
+    "base": "cmc stations",
+    "main": {
+        "temp": 283,
+        "pressure": 1030,
+        "humidity": 62,
+        "temp_min": 282.15,
+        "temp_max": 284.15
+    },
+    "wind": {
+        "speed": 0.5,
+        "deg": 1.0
+    },
+    "clouds": {
+        "all": 42
+    },
+    "rain": {
+        "3h": 42
+    },
+    "snow": {
+        "3h": 42
+    },
+    "dt": 1450351800,
+    "sys": {
+        "type": 1,
+        "id": 5488,
+        "message": 0.0213,
+        "country": "ES",
+        "sunrise": 1450337533,
+        "sunset": 1450370971
+    },
+    "id": 6324376,
+    "name": "Pinar de Chamartin",
+    "cod": 200
+}
