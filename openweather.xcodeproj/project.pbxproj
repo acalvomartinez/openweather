@@ -19,9 +19,11 @@
 		E2ED91491C22C77800DE48BA /* OWMForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91481C22C77800DE48BA /* OWMForecast.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91531C22DB5500DE48BA /* OWMJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91521C22DB5500DE48BA /* OWMJSONParser.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91591C231DDB00DE48BA /* OWMJSONParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91581C231DDB00DE48BA /* OWMJSONParserTests.m */; settings = {ASSET_TAGS = (); }; };
-		E2ED915C1C231E2300DE48BA /* EmptyActualWeatherStub.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED915B1C231E2300DE48BA /* EmptyActualWeatherStub.json */; settings = {ASSET_TAGS = (); }; };
+		E2ED915C1C231E2300DE48BA /* EmptyStub.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED915B1C231E2300DE48BA /* EmptyStub.json */; settings = {ASSET_TAGS = (); }; };
 		E2ED91601C231EEE00DE48BA /* StubFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED915F1C231EEE00DE48BA /* StubFileUtil.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91621C23216700DE48BA /* ActualWeatherStubComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED91611C23216700DE48BA /* ActualWeatherStubComplete.json */; settings = {ASSET_TAGS = (); }; };
+		E2ED91651C236B1800DE48BA /* Forecast5DaysStub.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED91641C236B1800DE48BA /* Forecast5DaysStub.json */; settings = {ASSET_TAGS = (); }; };
+		E2ED91671C236B5300DE48BA /* Forecast16DaysStub.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED91661C236B5300DE48BA /* Forecast16DaysStub.json */; settings = {ASSET_TAGS = (); }; };
 		F9F91E1862D870D67FD1E8E0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFB0C5A4654417B5CC52896 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,11 +73,13 @@
 		E2ED91521C22DB5500DE48BA /* OWMJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMJSONParser.m; sourceTree = "<group>"; };
 		E2ED91541C22E22600DE48BA /* OWMJSONIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMJSONIdentifiers.h; sourceTree = "<group>"; };
 		E2ED91581C231DDB00DE48BA /* OWMJSONParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMJSONParserTests.m; sourceTree = "<group>"; };
-		E2ED915B1C231E2300DE48BA /* EmptyActualWeatherStub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyActualWeatherStub.json; sourceTree = "<group>"; };
+		E2ED915B1C231E2300DE48BA /* EmptyStub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = EmptyStub.json; sourceTree = "<group>"; };
 		E2ED915E1C231EEE00DE48BA /* StubFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StubFileUtil.h; sourceTree = "<group>"; };
 		E2ED915F1C231EEE00DE48BA /* StubFileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StubFileUtil.m; sourceTree = "<group>"; };
 		E2ED91611C23216700DE48BA /* ActualWeatherStubComplete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ActualWeatherStubComplete.json; sourceTree = "<group>"; };
 		E2ED91631C2328C300DE48BA /* OWMJSONParserErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWMJSONParserErrors.h; sourceTree = "<group>"; };
+		E2ED91641C236B1800DE48BA /* Forecast5DaysStub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Forecast5DaysStub.json; sourceTree = "<group>"; };
+		E2ED91661C236B5300DE48BA /* Forecast16DaysStub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Forecast16DaysStub.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,8 +259,10 @@
 		E2ED915A1C231DEE00DE48BA /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
-				E2ED915B1C231E2300DE48BA /* EmptyActualWeatherStub.json */,
+				E2ED915B1C231E2300DE48BA /* EmptyStub.json */,
 				E2ED91611C23216700DE48BA /* ActualWeatherStubComplete.json */,
+				E2ED91641C236B1800DE48BA /* Forecast5DaysStub.json */,
+				E2ED91661C236B5300DE48BA /* Forecast16DaysStub.json */,
 			);
 			name = Stubs;
 			sourceTree = "<group>";
@@ -397,7 +403,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2ED915C1C231E2300DE48BA /* EmptyActualWeatherStub.json in Resources */,
+				E2ED91671C236B5300DE48BA /* Forecast16DaysStub.json in Resources */,
+				E2ED915C1C231E2300DE48BA /* EmptyStub.json in Resources */,
+				E2ED91651C236B1800DE48BA /* Forecast5DaysStub.json in Resources */,
 				E2ED91621C23216700DE48BA /* ActualWeatherStubComplete.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

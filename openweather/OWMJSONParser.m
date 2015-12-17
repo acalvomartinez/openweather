@@ -27,8 +27,8 @@
     
     if (error) {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmpyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmpyJSONReasonError;
+        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
+        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
         dict[NSUnderlyingErrorKey] = error;
         NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
         
@@ -39,13 +39,81 @@
     if (jsonDictionary.count == 0) {
         
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmpyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmpyJSONReasonError;
+        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
+        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
         NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
         
         if (errorBlock != nil) errorBlock(parseError);
         return;
     }
+    
+    OWMActualWeather *actualWeather = [self actualWeatherFromDictionary:jsonDictionary];
+    
+    if (completionBlock != nil) {
+        completionBlock(actualWeather);
+    }
+}
+
++ (void)parseForecastJSONString:(NSString *)jsonAsString
+                     completion:(ForecastParseBlock)completionBlock
+                        onError:(ParseErrorBlock)errorBlock {
+    NSData *data = [jsonAsString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    
+    if (error) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
+        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
+        dict[NSUnderlyingErrorKey] = error;
+        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
+        
+        if (errorBlock != nil) errorBlock(parseError);
+        return;
+    }
+    
+    if (jsonDictionary.count == 0) {
+        
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
+        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
+        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
+        
+        if (errorBlock != nil) errorBlock(parseError);
+        return;
+    }
+    
+    NSArray *jsonForecastArray = [jsonDictionary objectForKey:listIdentifier];
+    
+    if (jsonForecastArray==nil || jsonForecastArray.count == 0) {
+        
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        dict[NSLocalizedDescriptionKey] = ParserErrorNoForecastDataDescription;
+        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorNoForecastDataReasonError;
+        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
+        
+        if (errorBlock != nil) errorBlock(parseError);
+        return;
+    }
+    
+    NSMutableArray *forecastArray = [NSMutableArray arrayWithCapacity:jsonForecastArray.count];
+    
+    for (NSDictionary *forecastDictionary in jsonForecastArray) {
+        
+        OWMForecast *forecast = [self forecastFromDictionary:forecastDictionary];
+        
+        [forecastArray addObject:forecast];
+    }
+    
+    if (completionBlock != nil) {
+        completionBlock(forecastArray);
+    }
+}
+
+#pragma mark - Private
+
++ (OWMActualWeather *)actualWeatherFromDictionary:(NSDictionary *)jsonDictionary {
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[jsonDictionary objectForKey:dateIdentifier] integerValue]];
     
@@ -83,28 +151,41 @@
     
     OWMCity *city = [OWMCity cityWithId:[[jsonDictionary objectForKey:cityIdIdentifier] integerValue]
                                    name:[jsonDictionary objectForKey:cityNameIdentifier]];
-
     // Time
     
     NSDictionary *sysDictionary = [jsonDictionary objectForKey:sysIdentifier];
     NSDate *sunrise = [NSDate dateWithTimeIntervalSince1970:[[sysDictionary objectForKey:sunriseIdentifier] integerValue]];
     NSDate *sunset = [NSDate dateWithTimeIntervalSince1970:[[sysDictionary objectForKey:sunsetIdentifier] integerValue]];
     
-    OWMActualWeather *actualWeather = [OWMActualWeather actualForecastWithDate:date city:city weather:weatherData sunrise:sunrise sunset:sunset];
-    
-    if (completionBlock != nil) {
-        completionBlock(actualWeather);
-    }
+    return [OWMActualWeather actualWeatherWithDate:date city:city weather:weatherData sunrise:sunrise sunset:sunset];
 }
 
-+ (void)parseForecastJSONString:(NSString *)jsonAsString
-                     completion:(ForecastParseBlock)completionBlock
-                        onError:(ParseErrorBlock)errorBlock {
++ (OWMForecast *)forecastFromDictionary:(NSDictionary *)jsonDictionary {
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[jsonDictionary objectForKey:dateIdentifier] integerValue]];
     
+    // Weather Data
+    
+    NSDictionary *weatherDictionary = [[jsonDictionary objectForKey:weatherIdentifier] firstObject];
+    NSInteger weatherId = [[weatherDictionary objectForKey:weatherIdIdentifier] integerValue];
+    NSString *weatherGroup = [weatherDictionary objectForKey:weatherGroupIdentifier];
+    NSString *weatherCodition = [weatherDictionary objectForKey:weatherConditionIdentifier];
+    NSString *weatherIcon = [weatherDictionary objectForKey:weatherIconIdentifier];
+    
+    NSDictionary *tempDictionary = [jsonDictionary objectForKey:temperatureIdentifier];
+    float temperature = [[tempDictionary objectForKey:dayIdentifier] floatValue];
+    float maxTemperature = [[tempDictionary objectForKey:maxIdentifier] floatValue];
+    float minTemperature = [[tempDictionary objectForKey:minIdentifier] floatValue];
+    
+    float pressure = [[jsonDictionary objectForKey:pressureIdentifier] floatValue];
+    float humidity = [[jsonDictionary objectForKey:humidityIdentifier] floatValue];
+    float windSpeed = [[jsonDictionary objectForKey:windSpeedIdentifier] floatValue];
+    float windDirection = [[jsonDictionary objectForKey:windDirectionIdentifier] floatValue];
+    
+    float cloudiness = [[jsonDictionary objectForKey:cloudIdentifier] floatValue];
+    
+    OWMWeatherData *weatherData = [OWMWeatherData weatherWithId:weatherId group:weatherGroup condition:weatherCodition icon:weatherIcon temperature:temperature maxTemperature:maxTemperature minTemperature:minTemperature pressure:pressure humidity:humidity windSpeed:windSpeed windDirection:windDirection cloudiness:cloudiness];
+    
+    return [OWMForecast forecastWithDate:date weather:weatherData];
 }
-
-
-#pragma mark - Private
-
 
 @end

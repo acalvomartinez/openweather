@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSDate *sunrise;
 @property (nonatomic, strong) NSDate *sunset;
 
-+ (instancetype)actualForecastWithDate:(NSDate *)date
++ (instancetype)actualWeatherWithDate:(NSDate *)date
                                   city:(OWMCity *)city
                                weather:(OWMWeatherData *)weather
                                sunrise:(NSDate *)sunrise

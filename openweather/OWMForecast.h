@@ -18,9 +18,10 @@
 + (instancetype)forecastWithDate:(NSDate *)date
                          weather:(OWMWeatherData *)weather;
 
++ (instancetype)forecastFromDictionary:(NSDictionary *)jsonDictionary;
+
 - (instancetype)initWithDate:(NSDate *)date
                      weather:(OWMWeatherData *)weather;
-
 
 
 @end

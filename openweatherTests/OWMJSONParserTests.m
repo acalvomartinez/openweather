@@ -29,7 +29,7 @@
 }
 
 - (void)testJSONParserShouldReturnErrorWhenPassedAnEmptyActualWeatherJSON {
-    NSString *stub = [StubFileUtil loadJSONStubFileNamed:@"EmptyActualWeatherStub"];
+    NSString *stub = [StubFileUtil loadJSONStubFileNamed:@"EmptyStub"];
     
     [OWMJSONParser parseActualWeatherJSONString:stub completion:^(OWMActualWeather *actualWeather) {
         XCTAssertNil(actualWeather);
@@ -52,6 +52,47 @@
         XCTAssertNil(parseError);
     }];
 }
+
+- (void)testJSONParserShouldReturnErrorWhenPassedAnEmptyForecastJSONString {
+    [OWMJSONParser parseForecastJSONString:@"" completion:^(NSArray<OWMForecast *> *forecast) {
+        XCTAssertNil(forecast);
+    } onError:^(NSError *parseError) {
+        XCTAssertNotNil(parseError);
+    }];
+}
+
+- (void)testJSONParserShouldReturnErrorWhenPassedAnEmptyForecastJSON {
+    NSString *stub = [StubFileUtil loadJSONStubFileNamed:@"EmptyStub"];
+    
+    [OWMJSONParser parseForecastJSONString:stub completion:^(NSArray<OWMForecast *> *forecast) {
+        XCTAssertNil(forecast);
+    } onError:^(NSError *parseError) {
+        XCTAssertNotNil(parseError);
+    }];
+}
+
+- (void)testJSONParserShouldReturnForecastCompleteWhenPassedAnJSONStringWithForecastFor5Days {
+    NSString *stub = [StubFileUtil loadJSONStubFileNamed:@"Forecast5DaysStub"];
+    
+    [OWMJSONParser parseForecastJSONString:stub completion:^(NSArray<OWMForecast *> *forecast) {
+        XCTAssertNotNil(forecast);
+        XCTAssertEqual(forecast.count, 5);
+    } onError:^(NSError *parseError) {
+        XCTAssertNotNil(parseError);
+    }];
+}
+
+- (void)testJSONParserShouldReturnForecastCompleteWhenPassedAnJSONStringWithForecastFor16Days {
+    NSString *stub = [StubFileUtil loadJSONStubFileNamed:@"Forecast16DaysStub"];
+    
+    [OWMJSONParser parseForecastJSONString:stub completion:^(NSArray<OWMForecast *> *forecast) {
+        XCTAssertNotNil(forecast);
+        XCTAssertEqual(forecast.count, 16);
+    } onError:^(NSError *parseError) {
+        XCTAssertNotNil(parseError);
+    }];
+}
+
 
 
 

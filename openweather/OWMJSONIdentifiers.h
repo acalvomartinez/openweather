@@ -18,6 +18,8 @@ static NSString * const weatherGroupIdentifier = @"main";
 static NSString * const weatherConditionIdentifier = @"description";
 static NSString * const weatherIconIdentifier = @"icon";
 
+static NSString * const listIdentifier = @"list";
+
 static NSString * const dateIdentifier = @"dt";
 
 static NSString * const mainIdentifier = @"main";
@@ -26,6 +28,9 @@ static NSString * const maxTemperatureIdentifier = @"temp_min";
 static NSString * const minTemperatureIdentifier = @"temp_max";
 static NSString * const pressureIdentifier = @"pressure";
 static NSString * const humidityIdentifier = @"humidity";
+static NSString * const dayIdentifier = @"day";
+static NSString * const minIdentifier = @"min";
+static NSString * const maxIdentifier = @"max";
 
 static NSString * const windIdentifier = @"wind";
 static NSString * const windSpeedIdentifier = @"speed";

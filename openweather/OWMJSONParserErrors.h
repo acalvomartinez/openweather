@@ -16,5 +16,8 @@ enum {
     ParserInternalError
 };
 
-static NSString * const ParserErrorEmpyJSONDescription = @"Something is happing with JSONParser";
-static NSString * const ParserErrorEmpyJSONReasonError = @"JSON empty data";
+static NSString * const ParserErrorEmptyJSONDescription = @"Something is happing with JSONParser";
+static NSString * const ParserErrorEmptyJSONReasonError = @"JSON empty data";
+
+static NSString * const ParserErrorNoForecastDataDescription = @"Something is happing with JSONParser";
+static NSString * const ParserErrorNoForecastDataReasonError = @"Forecast empty data";

@@ -20,6 +20,13 @@
                               weather:weather];
 }
 
++ (instancetype)forecastFromDictionary:(NSDictionary *)dictionary {
+    
+    
+    return [[self alloc] initWithDate:nil
+                              weather:nil];
+}
+
 - (instancetype)initWithDate:(NSDate *)date
                      weather:(OWMWeatherData *)weather {
     if (self = [super init]) {

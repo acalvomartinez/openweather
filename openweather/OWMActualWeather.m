@@ -10,7 +10,7 @@
 
 @implementation OWMActualWeather
 
-+ (instancetype)actualForecastWithDate:(NSDate *)date
++ (instancetype)actualWeatherWithDate:(NSDate *)date
                                   city:(OWMCity *)city
                                weather:(OWMWeatherData *)weather
                                sunrise:(NSDate *)sunrise
