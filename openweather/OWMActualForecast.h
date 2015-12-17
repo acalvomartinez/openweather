@@ -10,15 +10,16 @@
 
 #import "OWMForecast.h"
 
+@class OWMCity;
+
 @interface OWMActualForecast : OWMForecast
 
+@property (nonatomic, strong) OWMCity *city;
 @property (nonatomic, assign) float windSpeed;
 @property (nonatomic, assign) float windDirection;
-
 @property (nonatomic, assign) float cloudiness;
 @property (nonatomic, assign) float rain3h;
 @property (nonatomic, assign) float snow3h;
-
 @property (nonatomic, strong) NSDate *sunrise;
 @property (nonatomic, strong) NSDate *sunset;
 

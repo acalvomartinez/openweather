@@ -33,9 +33,15 @@
                        maxTemperature:maxTemperature
                        minTemperature:minTemperature
                              pressure:pressure
-                             humidity:humidity];
+                             humidity:humidity
+                            windSpeed:windSpeed
+                        windDirection:windDirection
+                           cloudiness:cloudiness
+                               rain3h:rain3h
+                               snow3h:snow3h
+                              sunrise:sunrise
+                               sunset:sunset];
 }
-
 
 - (instancetype)initWithDate:(NSDate *)date
                         city:(OWMCity *)city
@@ -54,7 +60,6 @@
                       sunset:(NSDate *)sunset {
     
     if (self=[super initWithDate:date
-                            city:city
                          weather:weather
                      temperature:temperature
                   maxTemperature:maxTemperature
@@ -62,6 +67,7 @@
                         pressure:pressure
                         humidity:humidity]) {
         
+        self.city = city;
         self.windSpeed = windSpeed;
         self.windDirection = windDirection;
         self.cloudiness = cloudiness;

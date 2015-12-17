@@ -18,6 +18,7 @@
 		E2ED91431C22C56600DE48BA /* OWMWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91421C22C56600DE48BA /* OWMWeather.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91461C22C6A300DE48BA /* OWMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91451C22C6A300DE48BA /* OWMCity.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91491C22C77800DE48BA /* OWMForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91481C22C77800DE48BA /* OWMForecast.m */; settings = {ASSET_TAGS = (); }; };
+		E2ED91531C22DB5500DE48BA /* OWMJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91521C22DB5500DE48BA /* OWMJSONParser.m */; settings = {ASSET_TAGS = (); }; };
 		F9F91E1862D870D67FD1E8E0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFB0C5A4654417B5CC52896 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,9 @@
 		E2ED91451C22C6A300DE48BA /* OWMCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMCity.m; sourceTree = "<group>"; };
 		E2ED91471C22C77800DE48BA /* OWMForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMForecast.h; sourceTree = "<group>"; };
 		E2ED91481C22C77800DE48BA /* OWMForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMForecast.m; sourceTree = "<group>"; };
+		E2ED91511C22DB5500DE48BA /* OWMJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMJSONParser.h; sourceTree = "<group>"; };
+		E2ED91521C22DB5500DE48BA /* OWMJSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMJSONParser.m; sourceTree = "<group>"; };
+		E2ED91541C22E22600DE48BA /* OWMJSONIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMJSONIdentifiers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +194,7 @@
 		E2ED913B1C21A98A00DE48BA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E2ED91501C22D6E600DE48BA /* Parser */,
 				E2ED913D1C2207AC00DE48BA /* Model */,
 				E2ED913C1C21EA8600DE48BA /* Stores */,
 			);
@@ -216,6 +221,16 @@
 				E2ED913F1C22BA5300DE48BA /* OWMActualForecast.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E2ED91501C22D6E600DE48BA /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				E2ED91541C22E22600DE48BA /* OWMJSONIdentifiers.h */,
+				E2ED91511C22DB5500DE48BA /* OWMJSONParser.h */,
+				E2ED91521C22DB5500DE48BA /* OWMJSONParser.m */,
+			);
+			name = Parser;
 			sourceTree = "<group>";
 		};
 		F9830D6BD05FB5D57F7204FC /* Pods */ = {
@@ -413,6 +428,7 @@
 				E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */,
 				E2ED91071C21869900DE48BA /* main.m in Sources */,
 				E2ED91461C22C6A300DE48BA /* OWMCity.m in Sources */,
+				E2ED91531C22DB5500DE48BA /* OWMJSONParser.m in Sources */,
 				E2ED91431C22C56600DE48BA /* OWMWeather.m in Sources */,
 				E2ED91491C22C77800DE48BA /* OWMForecast.m in Sources */,
 				E2ED91401C22BA5300DE48BA /* OWMActualForecast.m in Sources */,

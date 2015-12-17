@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class OWMCity;
 @class OWMWeather;
 
 @interface OWMForecast : NSObject
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) OWMCity *city;
 @property (nonatomic, strong) OWMWeather *weather;
 
 @property (nonatomic, assign) float temperature;
@@ -25,7 +23,6 @@
 
 
 + (instancetype)forecastWithDate:(NSDate *)date
-                            city:(OWMCity *)city
                          weather:(OWMWeather *)weather
                      temperature:(float)temperature
                   maxTemperature:(float)maxTemperature
@@ -34,7 +31,6 @@
                         humidity:(float)humidity;
 
 - (instancetype)initWithDate:(NSDate *)date
-                        city:(OWMCity *)city
                      weather:(OWMWeather *)weather
                  temperature:(float)temperature
               maxTemperature:(float)maxTemperature

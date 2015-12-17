@@ -14,7 +14,6 @@
 @implementation OWMForecast
 
 + (instancetype)forecastWithDate:(NSDate *)date
-                            city:(OWMCity *)city
                          weather:(OWMWeather *)weather
                      temperature:(float)temperature
                   maxTemperature:(float)maxTemperature
@@ -23,7 +22,6 @@
                         humidity:(float)humidity {
     
     return [[self alloc] initWithDate:date
-                                 city:city
                               weather:weather
                           temperature:temperature
                        maxTemperature:maxTemperature
@@ -33,7 +31,6 @@
 }
 
 - (instancetype)initWithDate:(NSDate *)date
-                        city:(OWMCity *)city
                      weather:(OWMWeather *)weather
                  temperature:(float)temperature
               maxTemperature:(float)maxTemperature
@@ -42,7 +39,6 @@
                     humidity:(float)humidity {
     if (self = [super init]) {
         self.date = date;
-        self.city = city;
         self.weather = weather;
         self.temperature = temperature;
         self.maxTemperature = temperature;
