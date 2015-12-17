@@ -14,6 +14,10 @@
 		E2ED91151C21869900DE48BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2ED91131C21869900DE48BA /* LaunchScreen.storyboard */; };
 		E2ED91201C21869A00DE48BA /* openweatherTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED911F1C21869A00DE48BA /* openweatherTests.m */; };
 		E2ED912B1C21869A00DE48BA /* openweatherUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED912A1C21869A00DE48BA /* openweatherUITests.m */; };
+		E2ED91401C22BA5300DE48BA /* OWMActualForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED913F1C22BA5300DE48BA /* OWMActualForecast.m */; settings = {ASSET_TAGS = (); }; };
+		E2ED91431C22C56600DE48BA /* OWMWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91421C22C56600DE48BA /* OWMWeather.m */; settings = {ASSET_TAGS = (); }; };
+		E2ED91461C22C6A300DE48BA /* OWMCity.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91451C22C6A300DE48BA /* OWMCity.m */; settings = {ASSET_TAGS = (); }; };
+		E2ED91491C22C77800DE48BA /* OWMForecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91481C22C77800DE48BA /* OWMForecast.m */; settings = {ASSET_TAGS = (); }; };
 		F9F91E1862D870D67FD1E8E0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFB0C5A4654417B5CC52896 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +56,14 @@
 		E2ED91261C21869A00DE48BA /* openweatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = openweatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ED912A1C21869A00DE48BA /* openweatherUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = openweatherUITests.m; sourceTree = "<group>"; };
 		E2ED912C1C21869A00DE48BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2ED913E1C22BA5300DE48BA /* OWMActualForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMActualForecast.h; sourceTree = "<group>"; };
+		E2ED913F1C22BA5300DE48BA /* OWMActualForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMActualForecast.m; sourceTree = "<group>"; };
+		E2ED91411C22C56600DE48BA /* OWMWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMWeather.h; sourceTree = "<group>"; };
+		E2ED91421C22C56600DE48BA /* OWMWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMWeather.m; sourceTree = "<group>"; };
+		E2ED91441C22C6A300DE48BA /* OWMCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMCity.h; sourceTree = "<group>"; };
+		E2ED91451C22C6A300DE48BA /* OWMCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMCity.m; sourceTree = "<group>"; };
+		E2ED91471C22C77800DE48BA /* OWMForecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OWMForecast.h; sourceTree = "<group>"; };
+		E2ED91481C22C77800DE48BA /* OWMForecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMForecast.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +206,14 @@
 		E2ED913D1C2207AC00DE48BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2ED91441C22C6A300DE48BA /* OWMCity.h */,
+				E2ED91451C22C6A300DE48BA /* OWMCity.m */,
+				E2ED91411C22C56600DE48BA /* OWMWeather.h */,
+				E2ED91421C22C56600DE48BA /* OWMWeather.m */,
+				E2ED91471C22C77800DE48BA /* OWMForecast.h */,
+				E2ED91481C22C77800DE48BA /* OWMForecast.m */,
+				E2ED913E1C22BA5300DE48BA /* OWMActualForecast.h */,
+				E2ED913F1C22BA5300DE48BA /* OWMActualForecast.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -392,6 +412,10 @@
 			files = (
 				E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */,
 				E2ED91071C21869900DE48BA /* main.m in Sources */,
+				E2ED91461C22C6A300DE48BA /* OWMCity.m in Sources */,
+				E2ED91431C22C56600DE48BA /* OWMWeather.m in Sources */,
+				E2ED91491C22C77800DE48BA /* OWMForecast.m in Sources */,
+				E2ED91401C22BA5300DE48BA /* OWMActualForecast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
