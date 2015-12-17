@@ -8,35 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-@class OWMWeather;
+@class OWMWeatherData;
 
 @interface OWMForecast : NSObject
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) OWMWeather *weather;
-
-@property (nonatomic, assign) float temperature;
-@property (nonatomic, assign) float maxTemperature;
-@property (nonatomic, assign) float minTemperature;
-@property (nonatomic, assign) float pressure;
-@property (nonatomic, assign) float humidity;
-
+@property (nonatomic, strong) OWMWeatherData *weather;
 
 + (instancetype)forecastWithDate:(NSDate *)date
-                         weather:(OWMWeather *)weather
-                     temperature:(float)temperature
-                  maxTemperature:(float)maxTemperature
-                  minTemperature:(float)minTemperature
-                        pressure:(float)pressure
-                        humidity:(float)humidity;
+                         weather:(OWMWeatherData *)weather;
 
 - (instancetype)initWithDate:(NSDate *)date
-                     weather:(OWMWeather *)weather
-                 temperature:(float)temperature
-              maxTemperature:(float)maxTemperature
-              minTemperature:(float)minTemperature
-                    pressure:(float)pressure
-                    humidity:(float)humidity;
+                     weather:(OWMWeatherData *)weather;
 
 
 

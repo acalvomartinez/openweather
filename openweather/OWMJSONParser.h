@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class OWMActualForecast;
+@class OWMActualWeather;
 @class OWMForecast;
 
-typedef void(^ActualForecastParseBlock)(OWMActualForecast *);
+typedef void(^ActualForecastParseBlock)(OWMActualWeather *);
 typedef void(^ForecastParseBlock)(NSArray <OWMForecast *> *);
 typedef void(^ParseErrorBlock)(NSError *);
 

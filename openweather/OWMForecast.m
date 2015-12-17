@@ -9,42 +9,22 @@
 #import "OWMForecast.h"
 
 #import "OWMCity.h"
-#import "OWMWeather.h"
+#import "OWMWeatherData.h"
 
 @implementation OWMForecast
 
 + (instancetype)forecastWithDate:(NSDate *)date
-                         weather:(OWMWeather *)weather
-                     temperature:(float)temperature
-                  maxTemperature:(float)maxTemperature
-                  minTemperature:(float)minTemperature
-                        pressure:(float)pressure
-                        humidity:(float)humidity {
+                         weather:(OWMWeatherData *)weather {
     
     return [[self alloc] initWithDate:date
-                              weather:weather
-                          temperature:temperature
-                       maxTemperature:maxTemperature
-                       minTemperature:minTemperature
-                             pressure:pressure
-                             humidity:humidity];
+                              weather:weather];
 }
 
 - (instancetype)initWithDate:(NSDate *)date
-                     weather:(OWMWeather *)weather
-                 temperature:(float)temperature
-              maxTemperature:(float)maxTemperature
-              minTemperature:(float)minTemperature
-                    pressure:(float)pressure
-                    humidity:(float)humidity {
+                     weather:(OWMWeatherData *)weather {
     if (self = [super init]) {
         self.date = date;
         self.weather = weather;
-        self.temperature = temperature;
-        self.maxTemperature = temperature;
-        self.minTemperature = minTemperature;
-        self.pressure = pressure;
-        self.humidity = humidity;
     }
     
     return self;

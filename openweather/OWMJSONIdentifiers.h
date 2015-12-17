@@ -12,24 +12,32 @@ static NSString * const cityIdentifier = @"city";
 static NSString * const cityIdIdentifier = @"id";
 static NSString * const cityNameIdentifier = @"name";
 
-static NSString * const weatherIdIdentifier = @"weather.id";
-static NSString * const weatherGroupIdentifier = @"weather.group";
-static NSString * const weatherConditionIdentifier = @"weather.description";
-static NSString * const weatherIconIdentifier = @"weather.icon";
+static NSString * const weatherIdentifier = @"weather";
+static NSString * const weatherIdIdentifier = @"id";
+static NSString * const weatherGroupIdentifier = @"main";
+static NSString * const weatherConditionIdentifier = @"description";
+static NSString * const weatherIconIdentifier = @"icon";
 
 static NSString * const dateIdentifier = @"dt";
 
-static NSString * const temperatureIdentifier = @"main.temp";
-static NSString * const maxTemperatureIdentifier = @"main.temp_min";
-static NSString * const minTemperatureIdentifier = @"main.temp_max";
-static NSString * const pressureIdentifier = @"main.pressure";
-static NSString * const humidityIdentifier = @"main.humidity";
+static NSString * const mainIdentifier = @"main";
+static NSString * const temperatureIdentifier = @"temp";
+static NSString * const maxTemperatureIdentifier = @"temp_min";
+static NSString * const minTemperatureIdentifier = @"temp_max";
+static NSString * const pressureIdentifier = @"pressure";
+static NSString * const humidityIdentifier = @"humidity";
 
 static NSString * const windIdentifier = @"wind";
-static NSString * const windSpeedIdentifier = @"win.speed";
-static NSString * const windDegIdentifier = @"win.deg";
+static NSString * const windSpeedIdentifier = @"speed";
+static NSString * const windDirectionIdentifier = @"deg";
 
-static NSString * const cloudinessIdentifier = @"cloud.all";
-static NSString * const rain3hIdentifier = @"rain.3h";
-static NSString * const sunriseIdentifier = @"sys.sunrise";
-static NSString * const sunsetIdentifier = @"sys.sunset";
+static NSString * const cloudIdentifier = @"cloud";
+static NSString * const cloudinessIdentifier = @"all";
+static NSString * const rainIdentifier = @"rain";
+static NSString * const rain3hIdentifier = @"3h";
+static NSString * const snowIdentifier = @"snow";
+static NSString * const snow3hIdentifier = @"3h";
+
+static NSString * const sysIdentifier = @"sys";
+static NSString * const sunriseIdentifier = @"sunrise";
+static NSString * const sunsetIdentifier = @"sunset";
