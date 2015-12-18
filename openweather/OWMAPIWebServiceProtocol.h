@@ -8,20 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^CompletionBlock)(NSDictionary * _Nullable);
+typedef void(^ErrorBlock)(NSError * _Nullable);
+
 @protocol OWMAPIWebServiceProtocol <NSObject>
 
 @required
 
 - (void)actualWeatherInLatitude:(float)latitude
                       longitude:(float)longitude
-                        success:(void (^ _Nullable)(NSString * _Nullable))success
-                        failure:(void (^ _Nullable)(NSError * _Nullable))failure;
+                        success:(CompletionBlock _Nullable)success
+                        failure:(ErrorBlock _Nullable)failure;
 
 - (void)forecastInLatitude:(float)latitude
                  longitude:(float)longitude
                       days:(NSInteger)days
-                   success:(void (^ _Nullable)(NSString * _Nullable))success
-                   failure:(void (^ _Nullable)(NSError * _Nullable))failure;
+                   success:(CompletionBlock _Nullable)success
+                   failure:(ErrorBlock _Nullable)failure;
 
 @optional
 

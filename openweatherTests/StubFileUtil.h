@@ -10,6 +10,6 @@
 
 @interface StubFileUtil : NSObject
 
-+ (NSString *)loadJSONStubFileNamed:(NSString *)stubFilename;
++ (NSDictionary *)dictionaryWithJSONStubFileNamed:(NSString *)stubFilename;
 
 @end

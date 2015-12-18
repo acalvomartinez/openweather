@@ -42,8 +42,8 @@
 
 - (void)actualWeatherInLatitude:(float)latitude
                       longitude:(float)longitude
-                        success:(void (^)(NSString * _Nullable))success
-                        failure:(void (^)(NSError * _Nullable))failure {
+                        success:(CompletionBlock _Nullable)success
+                        failure:(ErrorBlock _Nullable)failure {
     NSDictionary *parameters = @{
                                  OpenWeatherMapLatParameter: @(latitude),
                                  OpenWeatherMapLonParameter: @(longitude)
@@ -52,7 +52,7 @@
     [self jsonForPath:OpenWeatherMapActualWeatherPath
            parameters:parameters
              retrying:OpenWeatherNetworkingRetries
-              success:^(NSString * _Nullable responseObject) {
+              success:^(NSDictionary * _Nullable responseObject) {
                   if (success) {
                       success(responseObject);
                   }
@@ -72,18 +72,19 @@
 - (void)forecastInLatitude:(float)latitude
                  longitude:(float)longitude
                       days:(NSInteger)days
-                   success:(void (^)(NSString * _Nullable))success
-                   failure:(void (^)(NSError * _Nullable))failure {
+                   success:(CompletionBlock _Nullable)success
+                   failure:(ErrorBlock _Nullable)failure {
     NSDictionary *parameters = @{
                                  OpenWeatherMapLatParameter: @(latitude),
                                  OpenWeatherMapLonParameter: @(longitude),
                                  OpenWeatherMapDaysParameter: @(days)
                                  };
     
-    [self jsonForPath:OpenWeatherMapActualWeatherPath
+
+    [self jsonForPath:OpenWeatherMapForecastPath
            parameters:parameters
              retrying:OpenWeatherNetworkingRetries
-              success:^(NSString * _Nullable responseObject) {
+              success:^(NSDictionary * _Nullable responseObject) {
                   if (success) {
                       success(responseObject);
                   }
@@ -104,8 +105,8 @@
 - (void)jsonForPath:(NSString *)path
          parameters:(NSDictionary *)parameters
            retrying:(NSInteger)nTimes
-            success:(void (^)(NSString * _Nullable))success
-            failure:(void (^)(NSError * _Nullable))failure {
+            success:(CompletionBlock _Nullable)success
+            failure:(ErrorBlock _Nullable)failure {
     if (nTimes <= 0) {
         if (failure) {
             NSError *networkingError = [NSError errorWithDescription:NetworkingErrorDescription
@@ -116,7 +117,7 @@
             failure(networkingError);
         }
     } else {
-        [self GET:path parameters:parameters success:^(NSString * _Nullable responseObject) {
+        [self GET:path parameters:parameters success:^(NSDictionary * _Nullable responseObject) {
             if (success) {
                 success(responseObject);
             }
@@ -130,7 +131,7 @@
 
 - (void)GET:(NSString *)path
  parameters:(NSDictionary *)parameters
-    success:(void (^)(NSString * _Nullable))success
+    success:(CompletionBlock _Nullable)success
     failure:(void (^)(NSError * _Nullable))failure {
     
     [self.sessionManager GET:path parameters:parameters progress:nil success:^(NSURLSessionTask *task, id responseObject) {

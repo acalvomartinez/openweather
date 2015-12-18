@@ -38,6 +38,13 @@
         return;   
     }
     
+    [self parseActualWeatherJSONDictionary:jsonDictionary completion:completionBlock onError:errorBlock];
+}
+
++ (void)parseActualWeatherJSONDictionary:(NSDictionary *)jsonDictionary
+                              completion:(ActualForecastParseBlock)completionBlock
+                                 onError:(ParseErrorBlock)errorBlock {
+    
     if (jsonDictionary.count == 0) {
         
         NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
@@ -54,6 +61,7 @@
     if (completionBlock != nil) {
         completionBlock(actualWeather);
     }
+    
 }
 
 + (void)parseForecastJSONString:(NSString *)jsonAsString
@@ -74,6 +82,12 @@
         return;
     }
     
+    [self parseForecastJSONDictionary:jsonDictionary completion:completionBlock onError:errorBlock];
+}
+
++ (void)parseForecastJSONDictionary:(NSDictionary *)jsonDictionary
+                         completion:(ForecastParseBlock)completionBlock
+                            onError:(ParseErrorBlock)errorBlock {
     if (jsonDictionary.count == 0) {
         
         NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription

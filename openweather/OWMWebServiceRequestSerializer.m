@@ -28,10 +28,7 @@
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
                                         error:(NSError * __autoreleasing *)error{
-    NSMutableDictionary *defaultParameters = [@{
-                                                OpenWeatherAPIKeyParameter: self.APIKey,
-                                                @"format": @"json"
-                                                } mutableCopy];
+    NSMutableDictionary *defaultParameters = [@{OpenWeatherAPIKeyParameter: self.APIKey} mutableCopy];
     [defaultParameters addEntriesFromDictionary:parameters];
     
     return [super requestBySerializingRequest:request withParameters:defaultParameters error: error];

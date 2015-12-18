@@ -10,10 +10,15 @@
 
 @implementation StubFileUtil
 
-+ (NSString *)loadJSONStubFileNamed:(NSString *)stubFilename {
++ (NSDictionary *)dictionaryWithJSONStubFileNamed:(NSString *)stubFilename {
     NSBundle *bundle = [NSBundle bundleForClass:self];
     NSString *filePath = [bundle pathForResource:stubFilename ofType:@"json"];
-    return [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:filePath] encoding:NSUTF8StringEncoding];
+    
+    NSString *dataString = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:filePath] encoding:NSUTF8StringEncoding];
+    NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
 }
 
 

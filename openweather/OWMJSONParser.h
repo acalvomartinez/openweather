@@ -21,8 +21,17 @@ typedef void(^ParseErrorBlock)(NSError *);
                           completion:(ActualForecastParseBlock)completionBlock
                              onError:(ParseErrorBlock)errorBlock;
 
++ (void)parseActualWeatherJSONDictionary:(NSDictionary *)jsonDictionary
+                              completion:(ActualForecastParseBlock)completionBlock
+                                 onError:(ParseErrorBlock)errorBlock;
+
 + (void)parseForecastJSONString:(NSString *)jsonAsString
                      completion:(ForecastParseBlock)completionBlock
                         onError:(ParseErrorBlock)errorBlock;
+
++ (void)parseForecastJSONDictionary:(NSDictionary *)jsonDictionary
+                     completion:(ForecastParseBlock)completionBlock
+                        onError:(ParseErrorBlock)errorBlock;
+
 
 @end
