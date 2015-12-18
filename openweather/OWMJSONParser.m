@@ -15,6 +15,8 @@
 #import "OWMForecast.h"
 #import "OWMActualWeather.h"
 
+#import "NSError+OWMErrors.h"
+
 @implementation OWMJSONParser
 
 + (void)parseActualWeatherJSONString:(NSString *)jsonAsString
@@ -26,23 +28,30 @@
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     
     if (error) {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        dict[NSUnderlyingErrorKey] = error;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:error];
         
         if (errorBlock != nil) errorBlock(parseError);
         return;   
     }
     
+    [self parseActualWeatherJSONDictionary:jsonDictionary completion:completionBlock onError:errorBlock];
+}
+
++ (void)parseActualWeatherJSONDictionary:(NSDictionary *)jsonDictionary
+                              completion:(ActualForecastParseBlock)completionBlock
+                                 onError:(ParseErrorBlock)errorBlock {
+    
     if (jsonDictionary.count == 0) {
         
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
-        
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:nil];
         if (errorBlock != nil) errorBlock(parseError);
         return;
     }
@@ -52,6 +61,7 @@
     if (completionBlock != nil) {
         completionBlock(actualWeather);
     }
+    
 }
 
 + (void)parseForecastJSONString:(NSString *)jsonAsString
@@ -63,23 +73,28 @@
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     
     if (error) {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        dict[NSUnderlyingErrorKey] = error;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
-        
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:error];
         if (errorBlock != nil) errorBlock(parseError);
         return;
     }
     
+    [self parseForecastJSONDictionary:jsonDictionary completion:completionBlock onError:errorBlock];
+}
+
++ (void)parseForecastJSONDictionary:(NSDictionary *)jsonDictionary
+                         completion:(ForecastParseBlock)completionBlock
+                            onError:(ParseErrorBlock)errorBlock {
     if (jsonDictionary.count == 0) {
         
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
-        
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:nil];
         if (errorBlock != nil) errorBlock(parseError);
         return;
     }
@@ -88,10 +103,11 @@
     
     if (jsonForecastArray==nil || jsonForecastArray.count == 0) {
         
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorNoForecastDataDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorNoForecastDataReasonError;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
+        NSError *parseError = [NSError errorWithDescription:ParserErrorNoForecastDataDescription
+                                                     reason:ParserErrorNoForecastDataReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:nil];
         
         if (errorBlock != nil) errorBlock(parseError);
         return;
@@ -112,6 +128,8 @@
 }
 
 #pragma mark - Private
+
+
 
 + (OWMActualWeather *)actualWeatherFromDictionary:(NSDictionary *)jsonDictionary {
     
