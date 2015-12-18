@@ -13,6 +13,7 @@
 		E210CB4B1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = E210CB4A1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m */; settings = {ASSET_TAGS = (); }; };
 		E210CB4E1C244599002B7B2A /* NSError+OWMErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = E210CB4D1C244599002B7B2A /* NSError+OWMErrors.m */; settings = {ASSET_TAGS = (); }; };
 		E210CB511C246165002B7B2A /* OWMWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E210CB501C246165002B7B2A /* OWMWebServiceTests.m */; settings = {ASSET_TAGS = (); }; };
+		E210CB571C248276002B7B2A /* openweather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E210CB551C248276002B7B2A /* openweather.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		E2ED91071C21869900DE48BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91061C21869900DE48BA /* main.m */; };
 		E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91091C21869900DE48BA /* AppDelegate.m */; };
 		E2ED91101C21869900DE48BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2ED910E1C21869900DE48BA /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		E210CB4D1C244599002B7B2A /* NSError+OWMErrors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+OWMErrors.m"; sourceTree = "<group>"; };
 		E210CB4F1C24547E002B7B2A /* OWMNetworkingErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWMNetworkingErrors.h; sourceTree = "<group>"; };
 		E210CB501C246165002B7B2A /* OWMWebServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMWebServiceTests.m; sourceTree = "<group>"; };
+		E210CB561C248276002B7B2A /* openweather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = openweather.xcdatamodel; sourceTree = "<group>"; };
 		E2ED91021C21869900DE48BA /* openweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ED91061C21869900DE48BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2ED91081C21869900DE48BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		E2ED913C1C21EA8600DE48BA /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				E210CB551C248276002B7B2A /* openweather.xcdatamodeld */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E210CB571C248276002B7B2A /* openweather.xcdatamodeld in Sources */,
 				E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */,
 				E210CB471C24339C002B7B2A /* OWMWebServiceClient.m in Sources */,
 				E2ED91071C21869900DE48BA /* main.m in Sources */,
@@ -826,6 +830,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E210CB551C248276002B7B2A /* openweather.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E210CB561C248276002B7B2A /* openweather.xcdatamodel */,
+			);
+			currentVersion = E210CB561C248276002B7B2A /* openweather.xcdatamodel */;
+			path = openweather.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E2ED90FA1C21869900DE48BA /* Project object */;
 }
