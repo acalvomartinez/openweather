@@ -10,11 +10,11 @@
 
 static NSString * const ParserErrorDomain = @"com.unagistudio.openweather.parser.ErrorDomain";
 
-enum {
+typedef enum parseErrorTypes {
     ParserError,
     ParserErrorEmptyJSONFile,
     ParserInternalError
-};
+} ParseErrorTypes;
 
 static NSString * const ParserErrorEmptyJSONDescription = @"Something is happing with JSONParser";
 static NSString * const ParserErrorEmptyJSONReasonError = @"JSON empty data";

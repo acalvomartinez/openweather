@@ -78,7 +78,7 @@
         XCTAssertNotNil(forecast);
         XCTAssertEqual(forecast.count, 5);
     } onError:^(NSError *parseError) {
-        XCTAssertNotNil(parseError);
+        XCTAssertNil(parseError);
     }];
 }
 
@@ -89,7 +89,7 @@
         XCTAssertNotNil(forecast);
         XCTAssertEqual(forecast.count, 16);
     } onError:^(NSError *parseError) {
-        XCTAssertNotNil(parseError);
+        XCTAssertNil(parseError);
     }];
 }
 

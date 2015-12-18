@@ -15,6 +15,8 @@
 #import "OWMForecast.h"
 #import "OWMActualWeather.h"
 
+#import "NSError+OWMErrors.h"
+
 @implementation OWMJSONParser
 
 + (void)parseActualWeatherJSONString:(NSString *)jsonAsString
@@ -26,11 +28,11 @@
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     
     if (error) {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        dict[NSUnderlyingErrorKey] = error;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:error];
         
         if (errorBlock != nil) errorBlock(parseError);
         return;   
@@ -38,11 +40,11 @@
     
     if (jsonDictionary.count == 0) {
         
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
-        
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:nil];
         if (errorBlock != nil) errorBlock(parseError);
         return;
     }
@@ -63,23 +65,22 @@
     NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     
     if (error) {
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        dict[NSUnderlyingErrorKey] = error;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
-        
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:error];
         if (errorBlock != nil) errorBlock(parseError);
         return;
     }
     
     if (jsonDictionary.count == 0) {
         
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorEmptyJSONDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorEmptyJSONReasonError;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
-        
+        NSError *parseError = [NSError errorWithDescription:ParserErrorEmptyJSONDescription
+                                                     reason:ParserErrorEmptyJSONReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:nil];
         if (errorBlock != nil) errorBlock(parseError);
         return;
     }
@@ -88,10 +89,11 @@
     
     if (jsonForecastArray==nil || jsonForecastArray.count == 0) {
         
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        dict[NSLocalizedDescriptionKey] = ParserErrorNoForecastDataDescription;
-        dict[NSLocalizedFailureReasonErrorKey] = ParserErrorNoForecastDataReasonError;
-        NSError *parseError = [NSError errorWithDomain:ParserErrorDomain code:ParserErrorEmptyJSONFile userInfo:dict];
+        NSError *parseError = [NSError errorWithDescription:ParserErrorNoForecastDataDescription
+                                                     reason:ParserErrorNoForecastDataReasonError
+                                                     domain:ParserErrorDomain
+                                                       code:ParserErrorEmptyJSONFile
+                                                parentError:nil];
         
         if (errorBlock != nil) errorBlock(parseError);
         return;
@@ -112,6 +114,8 @@
 }
 
 #pragma mark - Private
+
+
 
 + (OWMActualWeather *)actualWeatherFromDictionary:(NSDictionary *)jsonDictionary {
     
