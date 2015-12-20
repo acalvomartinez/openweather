@@ -6,13 +6,13 @@
 //  Copyright © 2015 Toni. All rights reserved.
 //
 
-#import "OWMCity.h"
+#import "JSONCity.h"
 
-@implementation OWMCity
+@implementation JSONCity
 
 + (instancetype)cityWithId:(NSUInteger)cityId
                       name:(NSString *)name {
-    OWMCity *city = [[OWMCity alloc] init];
+    JSONCity *city = [[JSONCity alloc] init];
     city.cityId = cityId;
     city.name = name;
     

@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@class OWMWeatherData;
+@class JSONWeatherData;
 
-@interface OWMForecast : NSObject
+@interface JSONForecast : NSObject
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic, strong) OWMWeatherData *weather;
+@property (nonatomic, strong) JSONWeatherData *weather;
 
 + (instancetype)forecastWithDate:(NSDate *)date
-                         weather:(OWMWeatherData *)weather;
+                         weather:(JSONWeatherData *)weather;
 
 + (instancetype)forecastFromDictionary:(NSDictionary *)jsonDictionary;
 
 - (instancetype)initWithDate:(NSDate *)date
-                     weather:(OWMWeatherData *)weather;
+                     weather:(JSONWeatherData *)weather;
 
 
 @end

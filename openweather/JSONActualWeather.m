@@ -6,13 +6,13 @@
 //  Copyright © 2015 Toni. All rights reserved.
 //
 
-#import "OWMActualWeather.h"
+#import "JSONActualWeather.h"
 
-@implementation OWMActualWeather
+@implementation JSONActualWeather
 
 + (instancetype)actualWeatherWithDate:(NSDate *)date
-                                  city:(OWMCity *)city
-                               weather:(OWMWeatherData *)weather
+                                  city:(JSONCity *)city
+                               weather:(JSONWeatherData *)weather
                                sunrise:(NSDate *)sunrise
                                 sunset:(NSDate *)sunset {
     
@@ -24,8 +24,8 @@
 }
 
 - (instancetype)initWithDate:(NSDate *)date
-                        city:(OWMCity *)city
-                     weather:(OWMWeatherData *)weather
+                        city:(JSONCity *)city
+                     weather:(JSONWeatherData *)weather
                      sunrise:(NSDate *)sunrise
                       sunset:(NSDate *)sunset {
     

@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class OWMActualWeather;
-@class OWMForecast;
+@class JSONActualWeather;
+@class JSONForecast;
 
-typedef void(^ActualForecastParseBlock)(OWMActualWeather *);
-typedef void(^ForecastParseBlock)(NSArray <OWMForecast *> *);
+typedef void(^ActualForecastParseBlock)(JSONActualWeather *);
+typedef void(^ForecastParseBlock)(NSArray <JSONForecast *> *);
 typedef void(^ParseErrorBlock)(NSError *);
 
-@interface OWMJSONParser : NSObject
+@interface JSONParser : NSObject
 
 + (void)parseActualWeatherJSONString:(NSString *)jsonAsString
                           completion:(ActualForecastParseBlock)completionBlock
