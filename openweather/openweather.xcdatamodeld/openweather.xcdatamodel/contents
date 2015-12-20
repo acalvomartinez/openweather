@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
-    <entity name="ActualWeather" syncable="YES">
+    <entity name="ActualWeather" representedClassName="ActualWeatherManaged" syncable="YES">
         <attribute name="cityName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="cloudiness" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -19,7 +19,7 @@
         <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="forecast" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Forecast" inverseName="actualweather" inverseEntity="Forecast" syncable="YES"/>
     </entity>
-    <entity name="Forecast" syncable="YES">
+    <entity name="Forecast" representedClassName="ForecastManaged" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="maxTemperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>

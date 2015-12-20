@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E26229A41C26BEB200101017 /* mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E26229A51C26BEB200101017 /* Build configuration list for PBXAggregateTarget "mogenerator" */;
+			buildPhases = (
+				E26229A81C26BFF800101017 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = mogenerator;
+			productName = mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		C9E0CCB19F884D7C7FC8AFED /* libPods-openweather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F1BA4673EEB777C3DF02FC5 /* libPods-openweather.a */; };
 		D0A2077BAD3D4FBC15817170 /* libPods-openweatherTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE24B16A08DACC04B848F6C1 /* libPods-openweatherTests.a */; };
@@ -14,6 +28,10 @@
 		E210CB4E1C244599002B7B2A /* NSError+OWMErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = E210CB4D1C244599002B7B2A /* NSError+OWMErrors.m */; settings = {ASSET_TAGS = (); }; };
 		E210CB511C246165002B7B2A /* OWMWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E210CB501C246165002B7B2A /* OWMWebServiceTests.m */; settings = {ASSET_TAGS = (); }; };
 		E210CB571C248276002B7B2A /* openweather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E210CB551C248276002B7B2A /* openweather.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		E26229B11C26C16A00101017 /* _ActualWeatherManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */; settings = {ASSET_TAGS = (); }; };
+		E26229B21C26C16A00101017 /* _ForecastManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AC1C26C16A00101017 /* _ForecastManaged.m */; settings = {ASSET_TAGS = (); }; };
+		E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */; settings = {ASSET_TAGS = (); }; };
+		E26229B41C26C16A00101017 /* ForecastManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229B01C26C16A00101017 /* ForecastManaged.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91071C21869900DE48BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91061C21869900DE48BA /* main.m */; };
 		E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91091C21869900DE48BA /* AppDelegate.m */; };
 		E2ED91101C21869900DE48BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2ED910E1C21869900DE48BA /* Main.storyboard */; };
@@ -30,7 +48,6 @@
 		E2ED91621C23216700DE48BA /* ActualWeatherStubComplete.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED91611C23216700DE48BA /* ActualWeatherStubComplete.json */; settings = {ASSET_TAGS = (); }; };
 		E2ED91651C236B1800DE48BA /* Forecast5DaysStub.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED91641C236B1800DE48BA /* Forecast5DaysStub.json */; settings = {ASSET_TAGS = (); }; };
 		E2ED91671C236B5300DE48BA /* Forecast16DaysStub.json in Resources */ = {isa = PBXBuildFile; fileRef = E2ED91661C236B5300DE48BA /* Forecast16DaysStub.json */; settings = {ASSET_TAGS = (); }; };
-		F9F91E1862D870D67FD1E8E0 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFB0C5A4654417B5CC52896 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +86,14 @@
 		E210CB4F1C24547E002B7B2A /* OWMNetworkingErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWMNetworkingErrors.h; sourceTree = "<group>"; };
 		E210CB501C246165002B7B2A /* OWMWebServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMWebServiceTests.m; sourceTree = "<group>"; };
 		E210CB561C248276002B7B2A /* openweather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = openweather.xcdatamodel; sourceTree = "<group>"; };
+		E26229A91C26C16A00101017 /* _ActualWeatherManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ActualWeatherManaged.h; sourceTree = "<group>"; };
+		E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ActualWeatherManaged.m; sourceTree = "<group>"; };
+		E26229AB1C26C16A00101017 /* _ForecastManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ForecastManaged.h; sourceTree = "<group>"; };
+		E26229AC1C26C16A00101017 /* _ForecastManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ForecastManaged.m; sourceTree = "<group>"; };
+		E26229AD1C26C16A00101017 /* ActualWeatherManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeatherManaged.h; sourceTree = "<group>"; };
+		E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherManaged.m; sourceTree = "<group>"; };
+		E26229AF1C26C16A00101017 /* ForecastManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastManaged.h; sourceTree = "<group>"; };
+		E26229B01C26C16A00101017 /* ForecastManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastManaged.m; sourceTree = "<group>"; };
 		E2ED91021C21869900DE48BA /* openweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ED91061C21869900DE48BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2ED91081C21869900DE48BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9F91E1862D870D67FD1E8E0 /* libPods.a in Frameworks */,
 				C9E0CCB19F884D7C7FC8AFED /* libPods-openweather.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +164,21 @@
 				AE24B16A08DACC04B848F6C1 /* libPods-openweatherTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E26229B51C26C17500101017 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				E26229AD1C26C16A00101017 /* ActualWeatherManaged.h */,
+				E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */,
+				E26229AF1C26C16A00101017 /* ForecastManaged.h */,
+				E26229B01C26C16A00101017 /* ForecastManaged.m */,
+				E26229A91C26C16A00101017 /* _ActualWeatherManaged.h */,
+				E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */,
+				E26229AB1C26C16A00101017 /* _ForecastManaged.h */,
+				E26229AC1C26C16A00101017 /* _ForecastManaged.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		E2ED90F91C21869900DE48BA = {
@@ -247,6 +286,7 @@
 		E2ED913C1C21EA8600DE48BA /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				E26229B51C26C17500101017 /* Entities */,
 				E210CB551C248276002B7B2A /* openweather.xcdatamodeld */,
 			);
 			name = Stores;
@@ -405,6 +445,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Toni;
 				TargetAttributes = {
+					E26229A41C26BEB200101017 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
 					E2ED91011C21869900DE48BA = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = GX34F8EY53;
@@ -435,6 +478,7 @@
 				E2ED91011C21869900DE48BA /* openweather */,
 				E2ED911A1C21869A00DE48BA /* openweatherTests */,
 				E2ED91251C21869A00DE48BA /* openweatherUITests */,
+				E26229A41C26BEB200101017 /* mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -560,6 +604,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-openweather/Pods-openweather-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E26229A81C26BFF800101017 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mogenerator --template-var arc=true -m openweather/openweather.xcdatamodeld/ -O openweather\necho \"💾 Mogenerator finished\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -567,15 +624,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E26229B21C26C16A00101017 /* _ForecastManaged.m in Sources */,
 				E210CB571C248276002B7B2A /* openweather.xcdatamodeld in Sources */,
 				E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */,
 				E210CB471C24339C002B7B2A /* OWMWebServiceClient.m in Sources */,
 				E2ED91071C21869900DE48BA /* main.m in Sources */,
+				E26229B11C26C16A00101017 /* _ActualWeatherManaged.m in Sources */,
+				E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */,
 				E210CB4B1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m in Sources */,
 				E210CB4E1C244599002B7B2A /* NSError+OWMErrors.m in Sources */,
 				E2ED91461C22C6A300DE48BA /* OWMCity.m in Sources */,
 				E2ED91531C22DB5500DE48BA /* OWMJSONParser.m in Sources */,
 				E2ED91431C22C56600DE48BA /* OWMWeatherData.m in Sources */,
+				E26229B41C26C16A00101017 /* ForecastManaged.m in Sources */,
 				E2ED91491C22C77800DE48BA /* OWMForecast.m in Sources */,
 				E2ED91401C22BA5300DE48BA /* OWMActualWeather.m in Sources */,
 			);
@@ -634,6 +695,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E26229A61C26BEB200101017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E26229A71C26BEB200101017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		E2ED912D1C21869A00DE48BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -793,6 +868,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E26229A51C26BEB200101017 /* Build configuration list for PBXAggregateTarget "mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E26229A61C26BEB200101017 /* Debug */,
+				E26229A71C26BEB200101017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E2ED90FD1C21869900DE48BA /* Build configuration list for PBXProject "openweather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
