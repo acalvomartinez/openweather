@@ -19,7 +19,7 @@ typedef enum networkingErrorTypes {
     NetworkingForecastErrorCode
 } NetworkingsErrorTypes;
 
-static NSString * const NetworkingErrorDescription = @"Something has happend with Networking";
+static NSString * const NetworkingErrorDescription = @"Something about Networking";
 static NSString * const NetworkingErrorConnection = @"Connection error";
 
 static NSString * const NetworkingErrorNotAvailable = @"Network not available";

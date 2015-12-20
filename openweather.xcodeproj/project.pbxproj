@@ -32,6 +32,9 @@
 		E26229B21C26C16A00101017 /* _ForecastManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AC1C26C16A00101017 /* _ForecastManaged.m */; settings = {ASSET_TAGS = (); }; };
 		E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */; settings = {ASSET_TAGS = (); }; };
 		E26229B41C26C16A00101017 /* ForecastManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229B01C26C16A00101017 /* ForecastManaged.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7D11C26F76A00B58009 /* ActualWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7D01C26F76A00B58009 /* ActualWeather.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7D41C26F77500B58009 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7D31C26F77500B58009 /* Forecast.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7D81C26FCA800B58009 /* DataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7D71C26FCA800B58009 /* DataStoreManager.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91071C21869900DE48BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91061C21869900DE48BA /* main.m */; };
 		E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91091C21869900DE48BA /* AppDelegate.m */; };
 		E2ED91101C21869900DE48BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2ED910E1C21869900DE48BA /* Main.storyboard */; };
@@ -94,6 +97,14 @@
 		E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherManaged.m; sourceTree = "<group>"; };
 		E26229AF1C26C16A00101017 /* ForecastManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastManaged.h; sourceTree = "<group>"; };
 		E26229B01C26C16A00101017 /* ForecastManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastManaged.m; sourceTree = "<group>"; };
+		E26EA7CF1C26F76A00B58009 /* ActualWeather.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeather.h; sourceTree = "<group>"; };
+		E26EA7D01C26F76A00B58009 /* ActualWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeather.m; sourceTree = "<group>"; };
+		E26EA7D21C26F77500B58009 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
+		E26EA7D31C26F77500B58009 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
+		E26EA7D51C26F81400B58009 /* DataStoreManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreManagerProtocol.h; sourceTree = "<group>"; };
+		E26EA7D61C26FCA800B58009 /* DataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreManager.h; sourceTree = "<group>"; };
+		E26EA7D71C26FCA800B58009 /* DataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStoreManager.m; sourceTree = "<group>"; };
+		E26EA7DC1C2705CA00B58009 /* DataStoreErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataStoreErrors.h; sourceTree = "<group>"; };
 		E2ED91021C21869900DE48BA /* openweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ED91061C21869900DE48BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2ED91081C21869900DE48BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -169,6 +180,19 @@
 		E26229B51C26C17500101017 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				E26EA7CE1C26F74D00B58009 /* Managed */,
+				E26EA7CF1C26F76A00B58009 /* ActualWeather.h */,
+				E26EA7D01C26F76A00B58009 /* ActualWeather.m */,
+				E26EA7D21C26F77500B58009 /* Forecast.h */,
+				E26EA7D31C26F77500B58009 /* Forecast.m */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		E26EA7CE1C26F74D00B58009 /* Managed */ = {
+			isa = PBXGroup;
+			children = (
+				E210CB551C248276002B7B2A /* openweather.xcdatamodeld */,
 				E26229AD1C26C16A00101017 /* ActualWeatherManaged.h */,
 				E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */,
 				E26229AF1C26C16A00101017 /* ForecastManaged.h */,
@@ -178,7 +202,7 @@
 				E26229AB1C26C16A00101017 /* _ForecastManaged.h */,
 				E26229AC1C26C16A00101017 /* _ForecastManaged.m */,
 			);
-			name = Entities;
+			name = Managed;
 			sourceTree = "<group>";
 		};
 		E2ED90F91C21869900DE48BA = {
@@ -287,7 +311,10 @@
 			isa = PBXGroup;
 			children = (
 				E26229B51C26C17500101017 /* Entities */,
-				E210CB551C248276002B7B2A /* openweather.xcdatamodeld */,
+				E26EA7D51C26F81400B58009 /* DataStoreManagerProtocol.h */,
+				E26EA7D61C26FCA800B58009 /* DataStoreManager.h */,
+				E26EA7D71C26FCA800B58009 /* DataStoreManager.m */,
+				E26EA7DC1C2705CA00B58009 /* DataStoreErrors.h */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -628,8 +655,10 @@
 				E210CB571C248276002B7B2A /* openweather.xcdatamodeld in Sources */,
 				E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */,
 				E210CB471C24339C002B7B2A /* OWMWebServiceClient.m in Sources */,
+				E26EA7D11C26F76A00B58009 /* ActualWeather.m in Sources */,
 				E2ED91071C21869900DE48BA /* main.m in Sources */,
 				E26229B11C26C16A00101017 /* _ActualWeatherManaged.m in Sources */,
+				E26EA7D81C26FCA800B58009 /* DataStoreManager.m in Sources */,
 				E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */,
 				E210CB4B1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m in Sources */,
 				E210CB4E1C244599002B7B2A /* NSError+OWMErrors.m in Sources */,
@@ -637,6 +666,7 @@
 				E2ED91461C22C6A300DE48BA /* JSONCity.m in Sources */,
 				E2ED91531C22DB5500DE48BA /* JSONParser.m in Sources */,
 				E2ED91431C22C56600DE48BA /* JSONWeatherData.m in Sources */,
+				E26EA7D41C26F77500B58009 /* Forecast.m in Sources */,
 				E2ED91491C22C77800DE48BA /* JSONForecast.m in Sources */,
 				E2ED91401C22BA5300DE48BA /* JSONActualWeather.m in Sources */,
 			);
@@ -875,6 +905,7 @@
 				E26229A71C26BEB200101017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2ED90FD1C21869900DE48BA /* Build configuration list for PBXProject "openweather" */ = {
 			isa = XCConfigurationList;
