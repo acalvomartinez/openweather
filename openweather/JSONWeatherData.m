@@ -6,9 +6,9 @@
 //  Copyright © 2015 Toni. All rights reserved.
 //
 
-#import "OWMWeatherData.h"
+#import "JSONWeatherData.h"
 
-@implementation OWMWeatherData
+@implementation JSONWeatherData
 
 + (instancetype)weatherWithId:(NSUInteger)weatherId
                         group:(NSString *)group

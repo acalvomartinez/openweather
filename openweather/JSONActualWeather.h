@@ -8,26 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-#import "OWMForecast.h"
+#import "JSONForecast.h"
 
-@class OWMCity;
+@class JSONCity;
 
-@interface OWMActualWeather : OWMForecast
+@interface JSONActualWeather : JSONForecast
 
-@property (nonatomic, strong) OWMCity *city;
+@property (nonatomic, strong) JSONCity *city;
 
 @property (nonatomic, strong) NSDate *sunrise;
 @property (nonatomic, strong) NSDate *sunset;
 
 + (instancetype)actualWeatherWithDate:(NSDate *)date
-                                  city:(OWMCity *)city
-                               weather:(OWMWeatherData *)weather
+                                  city:(JSONCity *)city
+                               weather:(JSONWeatherData *)weather
                                sunrise:(NSDate *)sunrise
                                 sunset:(NSDate *)sunset;
 
 - (instancetype)initWithDate:(NSDate *)date
-                        city:(OWMCity *)city
-                     weather:(OWMWeatherData *)weather
+                        city:(JSONCity *)city
+                     weather:(JSONWeatherData *)weather
                      sunrise:(NSDate *)sunrise
                       sunset:(NSDate *)sunset;
 

@@ -10,18 +10,18 @@
 
 #import "StubFileUtil.h"
 
-#import "OWMJSONParser.h"
-#import "OWMActualWeather.h"
+#import "JSONParser.h"
+#import "JSONActualWeather.h"
 
-@interface OWMJSONParserTests : XCTestCase
+@interface JSONParserTests : XCTestCase
 
 @end
 
-@implementation OWMJSONParserTests
+@implementation JSONParserTests
 
 - (void)testJSONParserShouldReturnErrorWhenPassedAnEmptyActualWeatherDictionary {
     
-    [OWMJSONParser parseActualWeatherJSONDictionary:@{} completion:^(OWMActualWeather *actualWeather) {
+    [JSONParser parseActualWeatherJSONDictionary:@{} completion:^(JSONActualWeather *actualWeather) {
         XCTAssertNil(actualWeather);
     } onError:^(NSError *parseError) {
         XCTAssertNotNil(parseError);
@@ -31,7 +31,7 @@
 - (void)testJSONParserShouldReturnActualWeatherCompleteWhenPassedAnJSONStringWithActualWeather {
     NSDictionary *stub = [StubFileUtil dictionaryWithJSONStubFileNamed:@"ActualWeatherStubComplete"];
     
-    [OWMJSONParser parseActualWeatherJSONDictionary:stub completion:^(OWMActualWeather *actualWeather) {
+    [JSONParser parseActualWeatherJSONDictionary:stub completion:^(JSONActualWeather *actualWeather) {
         XCTAssertNotNil(actualWeather);
         XCTAssertNotNil(actualWeather.date);
         XCTAssertNotNil(actualWeather.weather);
@@ -44,7 +44,7 @@
 }
 
 - (void)testJSONParserShouldReturnErrorWhenPassedAnEmptyForecastDictionary {
-    [OWMJSONParser parseForecastJSONDictionary:@{} completion:^(NSArray<OWMForecast *> *forecast) {
+    [JSONParser parseForecastJSONDictionary:@{} completion:^(NSArray<JSONForecast *> *forecast) {
         XCTAssertNil(forecast);
     } onError:^(NSError *parseError) {
         XCTAssertNotNil(parseError);
@@ -55,7 +55,7 @@
 - (void)testJSONParserShouldReturnForecastCompleteWhenPassedAnJSONStringWithForecastFor5Days {
     NSDictionary *stub = [StubFileUtil dictionaryWithJSONStubFileNamed:@"Forecast5DaysStub"];
     
-    [OWMJSONParser parseForecastJSONDictionary:stub completion:^(NSArray<OWMForecast *> *forecast) {
+    [JSONParser parseForecastJSONDictionary:stub completion:^(NSArray<JSONForecast *> *forecast) {
         XCTAssertNotNil(forecast);
         XCTAssertEqual(forecast.count, 5);
     } onError:^(NSError *parseError) {
@@ -66,7 +66,7 @@
 - (void)testJSONParserShouldReturnForecastCompleteWhenPassedAnJSONStringWithForecastFor16Days {
     NSDictionary *stub = [StubFileUtil dictionaryWithJSONStubFileNamed:@"Forecast16DaysStub"];
     
-    [OWMJSONParser parseForecastJSONDictionary:stub completion:^(NSArray<OWMForecast *> *forecast) {
+    [JSONParser parseForecastJSONDictionary:stub completion:^(NSArray<JSONForecast *> *forecast) {
         XCTAssertNotNil(forecast);
         XCTAssertEqual(forecast.count, 16);
     } onError:^(NSError *parseError) {
