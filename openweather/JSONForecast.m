@@ -6,15 +6,15 @@
 //  Copyright © 2015 Toni. All rights reserved.
 //
 
-#import "OWMForecast.h"
+#import "JSONForecast.h"
 
-#import "OWMCity.h"
-#import "OWMWeatherData.h"
+#import "JSONCity.h"
+#import "JSONWeatherData.h"
 
-@implementation OWMForecast
+@implementation JSONForecast
 
 + (instancetype)forecastWithDate:(NSDate *)date
-                         weather:(OWMWeatherData *)weather {
+                         weather:(JSONWeatherData *)weather {
     
     return [[self alloc] initWithDate:date
                               weather:weather];
@@ -28,7 +28,7 @@
 }
 
 - (instancetype)initWithDate:(NSDate *)date
-                     weather:(OWMWeatherData *)weather {
+                     weather:(JSONWeatherData *)weather {
     if (self = [super init]) {
         self.date = date;
         self.weather = weather;

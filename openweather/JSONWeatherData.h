@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OWMWeatherData : NSObject
+@interface JSONWeatherData : NSObject
 
 @property (nonatomic, assign) NSUInteger weatherId;
 @property (nonatomic, copy) NSString *group;

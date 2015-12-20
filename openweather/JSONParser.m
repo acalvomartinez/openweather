@@ -6,18 +6,18 @@
 //  Copyright © 2015 Toni. All rights reserved.
 //
 
-#import "OWMJSONParser.h"
-#import "OWMJSONParserErrors.h"
-#import "OWMJSONIdentifiers.h"
+#import "JSONParser.h"
+#import "JSONParserErrors.h"
+#import "JSONIdentifiers.h"
 
-#import "OWMCity.h"
-#import "OWMWeatherData.h"
-#import "OWMForecast.h"
-#import "OWMActualWeather.h"
+#import "JSONCity.h"
+#import "JSONWeatherData.h"
+#import "JSONForecast.h"
+#import "JSONActualWeather.h"
 
 #import "NSError+OWMErrors.h"
 
-@implementation OWMJSONParser
+@implementation JSONParser
 
 + (void)parseActualWeatherJSONString:(NSString *)jsonAsString
                           completion:(ActualForecastParseBlock)completionBlock
@@ -56,7 +56,7 @@
         return;
     }
     
-    OWMActualWeather *actualWeather = [self actualWeatherFromDictionary:jsonDictionary];
+    JSONActualWeather *actualWeather = [self actualWeatherFromDictionary:jsonDictionary];
     
     if (completionBlock != nil) {
         completionBlock(actualWeather);
@@ -117,7 +117,7 @@
     
     for (NSDictionary *forecastDictionary in jsonForecastArray) {
         
-        OWMForecast *forecast = [self forecastFromDictionary:forecastDictionary];
+        JSONForecast *forecast = [self forecastFromDictionary:forecastDictionary];
         
         [forecastArray addObject:forecast];
     }
@@ -129,9 +129,7 @@
 
 #pragma mark - Private
 
-
-
-+ (OWMActualWeather *)actualWeatherFromDictionary:(NSDictionary *)jsonDictionary {
++ (JSONActualWeather *)actualWeatherFromDictionary:(NSDictionary *)jsonDictionary {
     
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[jsonDictionary objectForKey:dateIdentifier] integerValue]];
     
@@ -163,11 +161,11 @@
     NSDictionary *snowDictionary = [jsonDictionary objectForKey:snowIdentifier];
     float snow3h = [[snowDictionary objectForKey:snow3hIdentifier] floatValue];
     
-    OWMWeatherData *weatherData = [OWMWeatherData weatherWithId:weatherId group:weatherGroup condition:weatherCodition icon:weatherIcon temperature:temperature maxTemperature:maxTemperature minTemperature:minTemperature pressure:pressure humidity:humidity windSpeed:windSpeed windDirection:windDirection cloudiness:cloudiness rain3h:rain3h snow3h:snow3h];
+    JSONWeatherData *weatherData = [JSONWeatherData weatherWithId:weatherId group:weatherGroup condition:weatherCodition icon:weatherIcon temperature:temperature maxTemperature:maxTemperature minTemperature:minTemperature pressure:pressure humidity:humidity windSpeed:windSpeed windDirection:windDirection cloudiness:cloudiness rain3h:rain3h snow3h:snow3h];
     
     // City
     
-    OWMCity *city = [OWMCity cityWithId:[[jsonDictionary objectForKey:cityIdIdentifier] integerValue]
+    JSONCity *city = [JSONCity cityWithId:[[jsonDictionary objectForKey:cityIdIdentifier] integerValue]
                                    name:[jsonDictionary objectForKey:cityNameIdentifier]];
     // Time
     
@@ -175,10 +173,10 @@
     NSDate *sunrise = [NSDate dateWithTimeIntervalSince1970:[[sysDictionary objectForKey:sunriseIdentifier] integerValue]];
     NSDate *sunset = [NSDate dateWithTimeIntervalSince1970:[[sysDictionary objectForKey:sunsetIdentifier] integerValue]];
     
-    return [OWMActualWeather actualWeatherWithDate:date city:city weather:weatherData sunrise:sunrise sunset:sunset];
+    return [JSONActualWeather actualWeatherWithDate:date city:city weather:weatherData sunrise:sunrise sunset:sunset];
 }
 
-+ (OWMForecast *)forecastFromDictionary:(NSDictionary *)jsonDictionary {
++ (JSONForecast *)forecastFromDictionary:(NSDictionary *)jsonDictionary {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[[jsonDictionary objectForKey:dateIdentifier] integerValue]];
     
     // Weather Data
@@ -201,9 +199,9 @@
     
     float cloudiness = [[jsonDictionary objectForKey:cloudIdentifier] floatValue];
     
-    OWMWeatherData *weatherData = [OWMWeatherData weatherWithId:weatherId group:weatherGroup condition:weatherCodition icon:weatherIcon temperature:temperature maxTemperature:maxTemperature minTemperature:minTemperature pressure:pressure humidity:humidity windSpeed:windSpeed windDirection:windDirection cloudiness:cloudiness];
+    JSONWeatherData *weatherData = [JSONWeatherData weatherWithId:weatherId group:weatherGroup condition:weatherCodition icon:weatherIcon temperature:temperature maxTemperature:maxTemperature minTemperature:minTemperature pressure:pressure humidity:humidity windSpeed:windSpeed windDirection:windDirection cloudiness:cloudiness];
     
-    return [OWMForecast forecastWithDate:date weather:weatherData];
+    return [JSONForecast forecastWithDate:date weather:weatherData];
 }
 
 @end

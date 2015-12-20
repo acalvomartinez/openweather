@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface OWMCity : NSObject
+@interface JSONCity : NSObject
 
 @property (nonatomic, assign) NSUInteger cityId;
 @property (nonatomic, copy) NSString *name;
