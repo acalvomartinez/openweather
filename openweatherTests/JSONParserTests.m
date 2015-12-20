@@ -28,7 +28,7 @@
     }];
 }
 
-- (void)testJSONParserShouldReturnActualWeatherCompleteWhenPassedAnJSONStringWithActualWeather {
+- (void)testJSONParserShouldReturnActualWeatherCompleteWhenPassedAnJSONDictinoaryWithActualWeather {
     NSDictionary *stub = [StubFileUtil dictionaryWithJSONStubFileNamed:@"ActualWeatherStubComplete"];
     
     [JSONParser parseActualWeatherJSONDictionary:stub completion:^(JSONActualWeather *actualWeather) {
@@ -52,7 +52,7 @@
 }
 
 
-- (void)testJSONParserShouldReturnForecastCompleteWhenPassedAnJSONStringWithForecastFor5Days {
+- (void)testJSONParserShouldReturnForecastCompleteWhenPassedAnJSONDictinoaryWithForecastFor5Days {
     NSDictionary *stub = [StubFileUtil dictionaryWithJSONStubFileNamed:@"Forecast5DaysStub"];
     
     [JSONParser parseForecastJSONDictionary:stub completion:^(NSArray<JSONForecast *> *forecast) {

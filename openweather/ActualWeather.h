@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSDate *date;
 
-@property (nonatomic, copy) NSString *weatherGroup;
+@property (nonatomic, copy) NSString *cityName;
 @property (nonatomic, copy) NSString *weatherCondition;
 @property (nonatomic, copy) NSString *weatherIcon;
 
@@ -31,5 +31,7 @@
 @property (nonatomic, assign) float snow3h;
 
 @property (nonatomic, strong) NSArray <Forecast *> *forecast;
+
++ (instancetype)blankWeather;
 
 @end

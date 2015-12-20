@@ -10,4 +10,14 @@
 
 @implementation ActualWeather
 
++ (instancetype)blankWeather {
+    ActualWeather *blankWeather = [[ActualWeather alloc] init];
+    
+    blankWeather.cityName = @"Location";
+    blankWeather.weatherIcon = @"blank";
+    blankWeather.weatherCondition = @"Weather Condition";
+    
+    return blankWeather;
+}
+
 @end

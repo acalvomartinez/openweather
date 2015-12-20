@@ -6,22 +6,21 @@
 //  Copyright © 2015 Toni. All rights reserved.
 //
 
-#import "DataStoreManager.h"
-#import "DataStoreErrors.h"
-#import "CoreDataStack.h"
+#import "CoreDataStore.h"
+#import "CoreDataStoreErrors.h"
+#import "NSError+OWMErrors.h"
+
 #import "ActualWeatherManaged.h"
 
-@interface DataStoreManager ()
+@interface CoreDataStore ()
 
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
-@property (nonatomic, strong) ActualWeatherManaged *actualWeather;
-
 @end
 
-@implementation DataStoreManager
+@implementation CoreDataStore
 
 - (instancetype)init {
     self = [super init];
@@ -46,20 +45,18 @@
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
         _managedObjectContext.undoManager = nil;
-        
-        
-        [self setupActualWeather];
-        
     }
+    
+    return self;
 }
 
 #pragma mark - Public
 
-- (id)updateActualWeatherWith:(id)actualWeather
-                  andForecast:(NSArray *)forecast
-                      onError:(ActualWeatherErrorBlock)errorBlock {
+
+- (id)newActualWeather {
+    ActualWeatherManaged *actualWeather = [ActualWeatherManaged insertInManagedObjectContext:self.managedObjectContext];
     
-    
+    return actualWeather;
 }
 
 
@@ -73,11 +70,11 @@
         
         if (results.count == 0) {
             if (errorBlock) {
-                NSError *error = [NSError errorWithDescription:DataStoreActualWeatherNotExistsDescription
-                                                        reason:DataStoreActualWeatherNotExistsReason
-                                                        domain:DataStoreErrorDomain
-                                                          code:DataStoreActualWeatherNotExists
-                                                   parentError:error];
+                NSError *error = [NSError errorWithDescription:CoreDataStoreActualWeatherNotExistsDescription
+                                                        reason:CoreDataStoreActualWeatherNotExistsReason
+                                                        domain:CoreDataStoreErrorDomain
+                                                          code:CoreDataStoreActualWeatherNotExists
+                                                   parentError:nil];
                 
                 errorBlock(error);
             }
@@ -96,32 +93,9 @@
     NSError *error;
     [self.managedObjectContext save:&error];
     
-    if (errorBlock) {
+    if (error) {
         errorBlock(error);
     }
 }
-
-
-#pragma mark - Private
-
-- (void)setupActualWeather {
-    
-    __weak DataStoreManager *weakSelf = self;
-    
-    [self fecthActualWeatherWithCompletion:^(ActualWeatherManaged *actualWeather) {
-        weakSelf.actualWeather = actualWeather;
-    } error:^(NSError *error) {
-        if (error.code == DataStoreActualWeatherNotExists) {
-            weakSelf.actualWeather = [self newActualWeather];
-        }
-    }];
-}
-
-- (ActualWeatherManaged *)newActualWeather {
-    ActualWeatherManaged *actualWeather = [ActualWeatherManaged insertInManagedObjectContext:self.managedObjectContext];
-    
-    return actualWeather;
-}
-
 
 @end

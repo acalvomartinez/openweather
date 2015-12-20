@@ -77,6 +77,8 @@
     NSDictionary __block *response = nil;
     [self.client forecastInLatitude:40.47734 longitude:-3.684926 days:5 success:^(NSDictionary * _Nullable object) {
         response = object;
+        
+        NSLog(@"%@",response);
         [completed fulfill];
     } failure:nil];
     

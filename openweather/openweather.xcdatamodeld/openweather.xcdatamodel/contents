@@ -14,20 +14,23 @@
         <attribute name="sunrise" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="sunset" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="temperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="weatherConditions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="weatherCondition" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="windDirection" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="windSpeed" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <relationship name="forecast" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Forecast" inverseName="actualweather" inverseEntity="Forecast" syncable="YES"/>
     </entity>
     <entity name="Forecast" representedClassName="ForecastManaged" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="humidity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="maxTemperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="minTemperature" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="pressure" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="weatherCondition" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="actualweather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActualWeather" inverseName="forecast" inverseEntity="ActualWeather" syncable="YES"/>
     </entity>
     <elements>
         <element name="ActualWeather" positionX="-63" positionY="-18" width="128" height="300"/>
-        <element name="Forecast" positionX="-54" positionY="-9" width="128" height="120"/>
+        <element name="Forecast" positionX="-54" positionY="-9" width="128" height="165"/>
     </elements>
 </model>

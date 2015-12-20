@@ -17,7 +17,7 @@ const struct ActualWeatherManagedAttributes ActualWeatherManagedAttributes = {
 	.sunrise = @"sunrise",
 	.sunset = @"sunset",
 	.temperature = @"temperature",
-	.weatherConditions = @"weatherConditions",
+	.weatherCondition = @"weatherCondition",
 	.windDirection = @"windDirection",
 	.windSpeed = @"windSpeed",
 };
@@ -276,7 +276,7 @@ const struct ActualWeatherManagedRelationships ActualWeatherManagedRelationships
 	[self setPrimitiveTemperature:[NSNumber numberWithFloat:value_]];
 }
 
-@dynamic weatherConditions;
+@dynamic weatherCondition;
 
 @dynamic windDirection;
 

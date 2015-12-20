@@ -11,9 +11,9 @@
 typedef void(^ActualWeatherCompletionBlock)(id);
 typedef void(^ActualWeatherErrorBlock)(NSError *);
 
-@protocol DataStoreManagerProtocol <NSObject>
+@protocol DataStoreProtocol <NSObject>
 
-- (id)updateActualWeatherWith:(id)actualWeather andForecast:(NSArray *)forecast;
+- (id)newActualWeather;
 
 - (void)fecthActualWeatherWithCompletion:(ActualWeatherCompletionBlock)completionBlock
                                    error:(ActualWeatherErrorBlock)errorBlock;

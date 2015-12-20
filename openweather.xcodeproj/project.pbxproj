@@ -34,7 +34,11 @@
 		E26229B41C26C16A00101017 /* ForecastManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229B01C26C16A00101017 /* ForecastManaged.m */; settings = {ASSET_TAGS = (); }; };
 		E26EA7D11C26F76A00B58009 /* ActualWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7D01C26F76A00B58009 /* ActualWeather.m */; settings = {ASSET_TAGS = (); }; };
 		E26EA7D41C26F77500B58009 /* Forecast.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7D31C26F77500B58009 /* Forecast.m */; settings = {ASSET_TAGS = (); }; };
-		E26EA7D81C26FCA800B58009 /* DataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7D71C26FCA800B58009 /* DataStoreManager.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7D81C26FCA800B58009 /* CoreDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7D71C26FCA800B58009 /* CoreDataStore.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7E81C270FEE00B58009 /* AppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7E71C270FEE00B58009 /* AppDependencies.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7EE1C27137D00B58009 /* ActualWeatherInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7ED1C27137D00B58009 /* ActualWeatherInteractor.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7F11C2714BA00B58009 /* ActualWeatherManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7F01C2714BA00B58009 /* ActualWeatherManager.m */; settings = {ASSET_TAGS = (); }; };
+		E26EA7F41C272CEB00B58009 /* ActualWeatherMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = E26EA7F31C272CEB00B58009 /* ActualWeatherMapper.m */; settings = {ASSET_TAGS = (); }; };
 		E2ED91071C21869900DE48BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91061C21869900DE48BA /* main.m */; };
 		E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED91091C21869900DE48BA /* AppDelegate.m */; };
 		E2ED91101C21869900DE48BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2ED910E1C21869900DE48BA /* Main.storyboard */; };
@@ -101,10 +105,19 @@
 		E26EA7D01C26F76A00B58009 /* ActualWeather.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeather.m; sourceTree = "<group>"; };
 		E26EA7D21C26F77500B58009 /* Forecast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Forecast.h; sourceTree = "<group>"; };
 		E26EA7D31C26F77500B58009 /* Forecast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Forecast.m; sourceTree = "<group>"; };
-		E26EA7D51C26F81400B58009 /* DataStoreManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreManagerProtocol.h; sourceTree = "<group>"; };
-		E26EA7D61C26FCA800B58009 /* DataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreManager.h; sourceTree = "<group>"; };
-		E26EA7D71C26FCA800B58009 /* DataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStoreManager.m; sourceTree = "<group>"; };
-		E26EA7DC1C2705CA00B58009 /* DataStoreErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataStoreErrors.h; sourceTree = "<group>"; };
+		E26EA7D51C26F81400B58009 /* DataStoreProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreProtocol.h; sourceTree = "<group>"; };
+		E26EA7D61C26FCA800B58009 /* CoreDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStore.h; sourceTree = "<group>"; };
+		E26EA7D71C26FCA800B58009 /* CoreDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStore.m; sourceTree = "<group>"; };
+		E26EA7DC1C2705CA00B58009 /* CoreDataStoreErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataStoreErrors.h; sourceTree = "<group>"; };
+		E26EA7E61C270FEE00B58009 /* AppDependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDependencies.h; sourceTree = "<group>"; };
+		E26EA7E71C270FEE00B58009 /* AppDependencies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDependencies.m; sourceTree = "<group>"; };
+		E26EA7EA1C27127000B58009 /* ActualWeatherInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeatherInteractorIO.h; sourceTree = "<group>"; };
+		E26EA7EC1C27137D00B58009 /* ActualWeatherInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeatherInteractor.h; sourceTree = "<group>"; };
+		E26EA7ED1C27137D00B58009 /* ActualWeatherInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherInteractor.m; sourceTree = "<group>"; };
+		E26EA7EF1C2714BA00B58009 /* ActualWeatherManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeatherManager.h; sourceTree = "<group>"; };
+		E26EA7F01C2714BA00B58009 /* ActualWeatherManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherManager.m; sourceTree = "<group>"; };
+		E26EA7F21C272CEB00B58009 /* ActualWeatherMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeatherMapper.h; sourceTree = "<group>"; };
+		E26EA7F31C272CEB00B58009 /* ActualWeatherMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherMapper.m; sourceTree = "<group>"; };
 		E2ED91021C21869900DE48BA /* openweather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = openweather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ED91061C21869900DE48BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2ED91081C21869900DE48BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -205,6 +218,91 @@
 			name = Managed;
 			sourceTree = "<group>";
 		};
+		E26EA7DE1C270E5C00B58009 /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+				E26EA7E51C270F8600B58009 /* Interactor */,
+				E26EA7E91C27116100B58009 /* Manager */,
+			);
+			name = "Application Logic";
+			sourceTree = "<group>";
+		};
+		E26EA7DF1C270E7B00B58009 /* Module interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Module interface";
+			sourceTree = "<group>";
+		};
+		E26EA7E01C270ECF00B58009 /* Actual Weather */ = {
+			isa = PBXGroup;
+			children = (
+				E26EA7DE1C270E5C00B58009 /* Application Logic */,
+				E26EA7E11C270EF500B58009 /* User Interface */,
+				E26EA7DF1C270E7B00B58009 /* Module interface */,
+			);
+			name = "Actual Weather";
+			sourceTree = "<group>";
+		};
+		E26EA7E11C270EF500B58009 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				E26EA7E21C270F0100B58009 /* Presenter */,
+				E26EA7E31C270F1500B58009 /* View */,
+				E26EA7E41C270F2100B58009 /* Wireframe */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		E26EA7E21C270F0100B58009 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Presenter;
+			sourceTree = "<group>";
+		};
+		E26EA7E31C270F1500B58009 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E26EA7E41C270F2100B58009 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Wireframe;
+			sourceTree = "<group>";
+		};
+		E26EA7E51C270F8600B58009 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				E26EA7EA1C27127000B58009 /* ActualWeatherInteractorIO.h */,
+				E26EA7EC1C27137D00B58009 /* ActualWeatherInteractor.h */,
+				E26EA7ED1C27137D00B58009 /* ActualWeatherInteractor.m */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		E26EA7E91C27116100B58009 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E26EA7EF1C2714BA00B58009 /* ActualWeatherManager.h */,
+				E26EA7F01C2714BA00B58009 /* ActualWeatherManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		E26EA7F51C272CFB00B58009 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				E26EA7F21C272CEB00B58009 /* ActualWeatherMapper.h */,
+				E26EA7F31C272CEB00B58009 /* ActualWeatherMapper.m */,
+			);
+			name = Mappers;
+			sourceTree = "<group>";
+		};
 		E2ED90F91C21869900DE48BA = {
 			isa = PBXGroup;
 			children = (
@@ -230,10 +328,12 @@
 		E2ED91041C21869900DE48BA /* openweather */ = {
 			isa = PBXGroup;
 			children = (
-				E2ED91391C21A91800DE48BA /* Classes */,
-				E2ED91381C21A8D800DE48BA /* Resources */,
 				E2ED91081C21869900DE48BA /* AppDelegate.h */,
 				E2ED91091C21869900DE48BA /* AppDelegate.m */,
+				E26EA7E61C270FEE00B58009 /* AppDependencies.h */,
+				E26EA7E71C270FEE00B58009 /* AppDependencies.m */,
+				E2ED91391C21A91800DE48BA /* Classes */,
+				E2ED91381C21A8D800DE48BA /* Resources */,
 				E2ED91051C21869900DE48BA /* Supporting Files */,
 			);
 			path = openweather;
@@ -291,6 +391,7 @@
 		E2ED913A1C21A92000DE48BA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E26EA7E01C270ECF00B58009 /* Actual Weather */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -298,10 +399,10 @@
 		E2ED913B1C21A98A00DE48BA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E26EA7F51C272CFB00B58009 /* Mappers */,
 				E2ED91681C242F6C00DE48BA /* WebService Client */,
 				E2ED91551C22F1CB00DE48BA /* Helpers */,
 				E2ED91501C22D6E600DE48BA /* Parser */,
-				E2ED913D1C2207AC00DE48BA /* Model */,
 				E2ED913C1C21EA8600DE48BA /* Stores */,
 			);
 			name = Common;
@@ -311,10 +412,10 @@
 			isa = PBXGroup;
 			children = (
 				E26229B51C26C17500101017 /* Entities */,
-				E26EA7D51C26F81400B58009 /* DataStoreManagerProtocol.h */,
-				E26EA7D61C26FCA800B58009 /* DataStoreManager.h */,
-				E26EA7D71C26FCA800B58009 /* DataStoreManager.m */,
-				E26EA7DC1C2705CA00B58009 /* DataStoreErrors.h */,
+				E26EA7D51C26F81400B58009 /* DataStoreProtocol.h */,
+				E26EA7D61C26FCA800B58009 /* CoreDataStore.h */,
+				E26EA7D71C26FCA800B58009 /* CoreDataStore.m */,
+				E26EA7DC1C2705CA00B58009 /* CoreDataStoreErrors.h */,
 			);
 			name = Stores;
 			sourceTree = "<group>";
@@ -337,6 +438,7 @@
 		E2ED91501C22D6E600DE48BA /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				E2ED913D1C2207AC00DE48BA /* Model */,
 				E2ED91511C22DB5500DE48BA /* JSONParser.h */,
 				E2ED91521C22DB5500DE48BA /* JSONParser.m */,
 				E2ED91631C2328C300DE48BA /* JSONParserErrors.h */,
@@ -656,19 +758,23 @@
 				E2ED910A1C21869900DE48BA /* AppDelegate.m in Sources */,
 				E210CB471C24339C002B7B2A /* OWMWebServiceClient.m in Sources */,
 				E26EA7D11C26F76A00B58009 /* ActualWeather.m in Sources */,
+				E26EA7EE1C27137D00B58009 /* ActualWeatherInteractor.m in Sources */,
 				E2ED91071C21869900DE48BA /* main.m in Sources */,
 				E26229B11C26C16A00101017 /* _ActualWeatherManaged.m in Sources */,
-				E26EA7D81C26FCA800B58009 /* DataStoreManager.m in Sources */,
+				E26EA7D81C26FCA800B58009 /* CoreDataStore.m in Sources */,
 				E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */,
 				E210CB4B1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m in Sources */,
 				E210CB4E1C244599002B7B2A /* NSError+OWMErrors.m in Sources */,
 				E26229B41C26C16A00101017 /* ForecastManaged.m in Sources */,
+				E26EA7F41C272CEB00B58009 /* ActualWeatherMapper.m in Sources */,
 				E2ED91461C22C6A300DE48BA /* JSONCity.m in Sources */,
 				E2ED91531C22DB5500DE48BA /* JSONParser.m in Sources */,
 				E2ED91431C22C56600DE48BA /* JSONWeatherData.m in Sources */,
 				E26EA7D41C26F77500B58009 /* Forecast.m in Sources */,
 				E2ED91491C22C77800DE48BA /* JSONForecast.m in Sources */,
 				E2ED91401C22BA5300DE48BA /* JSONActualWeather.m in Sources */,
+				E26EA7E81C270FEE00B58009 /* AppDependencies.m in Sources */,
+				E26EA7F11C2714BA00B58009 /* ActualWeatherManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
