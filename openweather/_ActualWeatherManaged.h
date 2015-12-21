@@ -17,7 +17,7 @@ extern const struct ActualWeatherManagedAttributes {
 	__unsafe_unretained NSString *sunrise;
 	__unsafe_unretained NSString *sunset;
 	__unsafe_unretained NSString *temperature;
-	__unsafe_unretained NSString *weatherConditions;
+	__unsafe_unretained NSString *weatherCondition;
 	__unsafe_unretained NSString *windDirection;
 	__unsafe_unretained NSString *windSpeed;
 } ActualWeatherManagedAttributes;
@@ -121,9 +121,9 @@ extern const struct ActualWeatherManagedRelationships {
 
 //- (BOOL)validateTemperature:(id*)value_ error:(NSError**)error_;
 
-@property (nonatomic, strong) NSString* weatherConditions;
+@property (nonatomic, strong) NSString* weatherCondition;
 
-//- (BOOL)validateWeatherConditions:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateWeatherCondition:(id*)value_ error:(NSError**)error_;
 
 @property (nonatomic, strong) NSNumber* windDirection;
 
@@ -220,8 +220,8 @@ extern const struct ActualWeatherManagedRelationships {
 - (float)primitiveTemperatureValue;
 - (void)setPrimitiveTemperatureValue:(float)value_;
 
-- (NSString*)primitiveWeatherConditions;
-- (void)setPrimitiveWeatherConditions:(NSString*)value;
+- (NSString*)primitiveWeatherCondition;
+- (void)setPrimitiveWeatherCondition:(NSString*)value;
 
 - (NSNumber*)primitiveWindDirection;
 - (void)setPrimitiveWindDirection:(NSNumber*)value;

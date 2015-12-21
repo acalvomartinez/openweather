@@ -10,4 +10,18 @@
 
 @implementation ActualWeather
 
++ (instancetype)blankWeather {
+    ActualWeather *blankWeather = [[ActualWeather alloc] init];
+    
+    blankWeather.cityName = @"Location";
+    blankWeather.weatherIcon = @"";
+    blankWeather.weatherCondition = @"Weather Condition";
+    
+    return blankWeather;
+}
+
+-(NSString *)description {
+    return [NSString stringWithFormat:@"%@. Temp: %2f. %@", self.cityName, self.temperature, self.weatherCondition];
+}
+
 @end

@@ -5,9 +5,12 @@
 
 const struct ForecastManagedAttributes ForecastManagedAttributes = {
 	.date = @"date",
+	.humidity = @"humidity",
 	.icon = @"icon",
 	.maxTemperature = @"maxTemperature",
 	.minTemperature = @"minTemperature",
+	.pressure = @"pressure",
+	.weatherCondition = @"weatherCondition",
 };
 
 const struct ForecastManagedRelationships ForecastManagedRelationships = {
@@ -40,6 +43,11 @@ const struct ForecastManagedRelationships ForecastManagedRelationships = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 
+	if ([key isEqualToString:@"humidityValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"humidity"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"maxTemperatureValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"maxTemperature"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -50,11 +58,36 @@ const struct ForecastManagedRelationships ForecastManagedRelationships = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"pressureValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"pressure"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
 
 @dynamic date;
+
+@dynamic humidity;
+
+- (float)humidityValue {
+	NSNumber *result = [self humidity];
+	return [result floatValue];
+}
+
+- (void)setHumidityValue:(float)value_ {
+	[self setHumidity:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitiveHumidityValue {
+	NSNumber *result = [self primitiveHumidity];
+	return [result floatValue];
+}
+
+- (void)setPrimitiveHumidityValue:(float)value_ {
+	[self setPrimitiveHumidity:[NSNumber numberWithFloat:value_]];
+}
 
 @dynamic icon;
 
@@ -97,6 +130,28 @@ const struct ForecastManagedRelationships ForecastManagedRelationships = {
 - (void)setPrimitiveMinTemperatureValue:(float)value_ {
 	[self setPrimitiveMinTemperature:[NSNumber numberWithFloat:value_]];
 }
+
+@dynamic pressure;
+
+- (float)pressureValue {
+	NSNumber *result = [self pressure];
+	return [result floatValue];
+}
+
+- (void)setPressureValue:(float)value_ {
+	[self setPressure:[NSNumber numberWithFloat:value_]];
+}
+
+- (float)primitivePressureValue {
+	NSNumber *result = [self primitivePressure];
+	return [result floatValue];
+}
+
+- (void)setPrimitivePressureValue:(float)value_ {
+	[self setPrimitivePressure:[NSNumber numberWithFloat:value_]];
+}
+
+@dynamic weatherCondition;
 
 @dynamic actualweather;
 

@@ -15,7 +15,6 @@
 @property (nonatomic, copy) NSString *weatherCondition;
 @property (nonatomic, copy) NSString *weatherIcon;
 
-@property (nonatomic, assign) float temperature;
 @property (nonatomic, assign) float maxTemperature;
 @property (nonatomic, assign) float minTemperature;
 @property (nonatomic, assign) float pressure;
