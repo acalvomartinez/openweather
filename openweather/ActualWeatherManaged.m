@@ -15,12 +15,5 @@
     return [[self.forecast allObjects] sortedArrayUsingDescriptors:sortDescriptors];
 }
 
-- (void)updateWithJSONActualWeather:(JSONActualWeather *)actualWeatherJSON {
-    
-}
-
-- (void)updateWithJSONForecast:(NSArray<JSONForecast *> *)forecastJSON {
-    
-}
 
 @end

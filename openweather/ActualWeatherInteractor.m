@@ -8,14 +8,16 @@
 
 #import "ActualWeatherInteractor.h"
 #import "CoreDataStoreErrors.h"
-#import "ActualWeatherManager.h"
+#import "ActualWeatherDataManager.h"
 #import "ActualWeather.h"
+
+#import "CoreLocationHelper.h"
 
 @import CoreLocation;
 
 @interface ActualWeatherInteractor ()
 
-@property (nonatomic, strong) ActualWeatherManager *dataManager;
+@property (nonatomic, strong) ActualWeatherDataManager *dataManager;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *currentLocation;
@@ -25,12 +27,10 @@
 
 @implementation ActualWeatherInteractor
 
-- (instancetype)initWithDataManager:(ActualWeatherManager *)dataManager {
+- (instancetype)initWithDataManager:(ActualWeatherDataManager *)dataManager {
     if ((self = [super init]))
     {
         _dataManager = dataManager;
-        
-        [self setupLocationManager];
     }
     
     return self;
@@ -46,6 +46,11 @@
         [weakself.output foundUpActualWeather:actualWeather];
     } errorBlock:^(NSError * _Nullable error) {
         if (error.code == CoreDataStoreActualWeatherNotExists) {
+            
+            [weakself.dataManager createActualWeatherManagedOnErrorBlock:^(NSError * _Nullable error) {
+                [weakself.output actualWeatherFailWithError:error];
+            }];
+            
             ActualWeather *blankWeather = [ActualWeather blankWeather];
             
             [weakself.output foundUpActualWeather:blankWeather];
@@ -56,12 +61,19 @@
 
 #pragma mark - Core Location
 
-
-- (void)setupLocationManager {
-    _locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self;
+- (CLLocationManager *)locationManager {
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+    }
+    return _locationManager;
 }
 
+- (void)requestLocationServiceAuthorization {
+    if (![CoreLocationHelper isLocationServiceAuthorizedByUser]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
     if (self.isFirstUpdate) {

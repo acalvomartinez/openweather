@@ -17,7 +17,9 @@ typedef void(^ActualWeatherFecthBlock)(ActualWeather * _Nullable);
 typedef void(^ForecastFecthBlock)(NSArray <Forecast *> * _Nullable);
 typedef void(^ErrorBlock)(NSError * _Nullable);
 
-@interface ActualWeatherManager : NSObject
+@interface ActualWeatherDataManager : NSObject
+
+- (void)createActualWeatherManagedOnErrorBlock:(ErrorBlock _Nullable)errorBlock;
 
 - (void)actualWeatherOnCompletionBlock:(ActualWeatherFecthBlock _Nullable)completionBlock
                             errorBlock:(ErrorBlock _Nullable)errorBlock;

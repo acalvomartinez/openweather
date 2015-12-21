@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol ActualWeatherInteractorInput <NSObject>
+- (void)requestLocationServiceAuthorization;
 - (void)findCurrentLocation;
 @end
 

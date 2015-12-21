@@ -11,12 +11,12 @@
 
 @import CoreLocation;
 
-@class ActualWeatherManager;
+@class ActualWeatherDataManager;
 
 @interface ActualWeatherInteractor : NSObject <ActualWeatherInteractorInput, CLLocationManagerDelegate>
 
 @property (nonatomic, weak) id<ActualWeatherInteractorOutput> output;
 
-- (instancetype)initWithDataManager:(ActualWeatherManager *)dataManager;
+- (instancetype)initWithDataManager:(ActualWeatherDataManager *)dataManager;
 
 @end

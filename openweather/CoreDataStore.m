@@ -11,6 +11,11 @@
 #import "NSError+OWMErrors.h"
 
 #import "ActualWeatherManaged.h"
+#import "ForecastManaged.h"
+#import "JSONActualWeather.h"
+#import "JSONCity.h"
+#import "JSONWeatherData.h"
+#import "JSONForecast.h"
 
 @interface CoreDataStore ()
 
@@ -97,5 +102,68 @@
         errorBlock(error);
     }
 }
+
+- (void)updateActualWeatherManaged:(ActualWeatherManaged *)objectManaged
+             withJSONActualWeather:(JSONActualWeather *)JSONObject
+                           onError:(ActualWeatherErrorBlock)errorBlock {
+    
+    [objectManaged setDate:JSONObject.date];
+    [objectManaged setCityName:JSONObject.city.name];
+    [objectManaged setIcon:JSONObject.weather.icon];
+    [objectManaged setWeatherCondition:JSONObject.weather.condition];
+    [objectManaged setSunrise:JSONObject.sunrise];
+    [objectManaged setSunset:JSONObject.sunset];
+    [objectManaged setTemperatureValue:JSONObject.weather.temperature];
+    [objectManaged setMaxTemperatureValue:JSONObject.weather.maxTemperature];
+    [objectManaged setMinTemperatureValue:JSONObject.weather.minTemperature];
+    [objectManaged setHumidityValue:JSONObject.weather.humidity];
+    [objectManaged setPressureValue:JSONObject.weather.pressure];
+    [objectManaged setRain3hValue:JSONObject.weather.rain3h];
+    [objectManaged setSnow3hValue:JSONObject.weather.snow3h];
+    [objectManaged setWindDirectionValue:JSONObject.weather.windDirection];
+    [objectManaged setWindSpeedValue:JSONObject.weather.windSpeed];
+    [objectManaged setCloudinessValue:JSONObject.weather.cloudiness];
+    
+    [self saveOnError:^(NSError *error) {
+        if (error) {
+            errorBlock(error);
+        }
+    }];
+}
+
+- (void)updateActualWeatherManaged:(ActualWeatherManaged *)objectManaged
+                  withJSONForecast:(NSArray<JSONForecast *> *)JSONObject
+                           onError:(ActualWeatherErrorBlock)errorBlock  {
+    
+    [objectManaged.forecastSet removeAllObjects];
+    
+    for (JSONForecast *forecast in JSONObject) {
+        [objectManaged.forecastSet addObject:[self forecastManagedFromJSONForecast:forecast]];
+    }
+    
+    [self saveOnError:^(NSError *error) {
+        if (error) {
+            errorBlock(error);
+        }
+    }];
+
+}
+
+- (ForecastManaged *)forecastManagedFromJSONForecast:(JSONForecast *)JSONObject  {
+    ForecastManaged *forecast = [ForecastManaged insertInManagedObjectContext:self.managedObjectContext];
+    
+    [forecast setDate:JSONObject.date];
+    [forecast setIcon:JSONObject.weather.icon];
+    [forecast setWeatherCondition:JSONObject.weather.condition];
+    [forecast setMaxTemperatureValue:JSONObject.weather.maxTemperature];
+    [forecast setMinTemperatureValue:JSONObject.weather.minTemperature];
+    [forecast setHumidityValue:JSONObject.weather.humidity];
+    [forecast setPressureValue:JSONObject.weather.pressure];
+
+    return forecast;
+}
+
+
+
 
 @end

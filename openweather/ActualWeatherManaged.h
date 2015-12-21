@@ -7,7 +7,4 @@
 
 - (NSArray *)sortedForecast;
 
-- (void)updateWithJSONActualWeather:(JSONActualWeather *)actualWeatherJSON;
-- (void)updateWithJSONForecast:(NSArray<JSONForecast *> *)forecastJSON;
-
 @end

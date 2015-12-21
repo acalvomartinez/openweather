@@ -10,4 +10,8 @@
 
 @implementation Forecast
 
+-(NSString *)description {
+    return [NSString stringWithFormat:@"%@. Max: %2f. Min: %2f. %@", self.date, self.maxTemperature, self.minTemperature, self.weatherCondition];
+}
+
 @end

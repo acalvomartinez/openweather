@@ -6,7 +6,7 @@
 //  Copyright © 2015 Toni. All rights reserved.
 //
 
-#import "ActualWeatherManager.h"
+#import "ActualWeatherDataManager.h"
 #import "ActualWeatherManaged.h"
 #import "ActualWeather.h"
 
@@ -16,7 +16,7 @@
 
 #import "ActualWeatherMapper.h"
 
-@interface ActualWeatherManager ()
+@interface ActualWeatherDataManager ()
 
 @property (nonatomic, strong) CoreDataStore *dataStore;
 @property (nonatomic, strong) OWMWebServiceClient *owmClient;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation ActualWeatherManager
+@implementation ActualWeatherDataManager
 
 - (instancetype)init {
     self = [super init];
@@ -37,10 +37,19 @@
     return self;
 }
 
+- (void)createActualWeatherManagedOnErrorBlock:(ErrorBlock)errorBlock {
+    self.actualWeatherManaged = [self.dataStore newActualWeather];
+    [self.dataStore saveOnError:^(NSError *error) {
+        if (errorBlock) {
+            errorBlock(error);
+        }
+    }];
+}
+
 - (void)actualWeatherOnCompletionBlock:(ActualWeatherFecthBlock)completionBlock
                             errorBlock:(ErrorBlock)errorBlock {
     
-    __weak ActualWeatherManager *weakself = self;
+    __weak ActualWeatherDataManager *weakself = self;
     
     [self.dataStore fecthActualWeatherWithCompletion:^(ActualWeatherManaged *objectManaged) {
         
@@ -91,7 +100,7 @@
             forecastCompletionBlock:(ForecastFecthBlock _Nullable)forecastCompletionBlock
                          errorBlock:(ErrorBlock)errorBlock {
     
-    __weak ActualWeatherManager *weakself = self;
+    __weak ActualWeatherDataManager *weakself = self;
     
     [self.owmClient actualWeatherInLatitude:coordinate.latitude
                                   longitude:coordinate.longitude
@@ -123,11 +132,17 @@
                     completionBlock:(ActualWeatherFecthBlock)completionBlock
                          errorBlock:(ErrorBlock)errorBlock {
     
-    __weak ActualWeatherManager *weakself = self;
+    __weak ActualWeatherDataManager *weakself = self;
     
     [JSONParser parseActualWeatherJSONDictionary:jsonDictionary completion:^(JSONActualWeather *actualWeatherJSON) {
         
-        [weakself.actualWeatherManaged updateWithJSONActualWeather:actualWeatherJSON];
+        [weakself.dataStore updateActualWeatherManaged:weakself.actualWeatherManaged
+                                 withJSONActualWeather:actualWeatherJSON
+                                               onError:^(NSError *error) {
+                                          if (errorBlock) {
+                                              errorBlock(error);
+                                          }
+                                      }];
         
         ActualWeather *actualWeather = [ActualWeatherMapper actualWeatherFromManagedObject:weakself.actualWeatherManaged];
         
@@ -150,12 +165,17 @@
 - (void)updateWithJSONForecast:(NSDictionary *)jsonDictionary
                completionBlock:(ForecastFecthBlock)completionBlock
                     errorBlock:(ErrorBlock)errorBlock {
-    __weak ActualWeatherManager *weakself = self;
+    __weak ActualWeatherDataManager *weakself = self;
     
     [JSONParser parseForecastJSONDictionary:jsonDictionary completion:^(NSArray<JSONForecast *> *forecastJSON) {
         
-        [weakself.actualWeatherManaged updateWithJSONForecast:forecastJSON];
-        
+        [weakself.dataStore updateActualWeatherManaged:weakself.actualWeatherManaged
+                                      withJSONForecast:forecastJSON
+                                               onError:^(NSError *error) {
+                                          if (errorBlock) {
+                                              errorBlock(error);
+                                          }
+                                      }];
         ActualWeather *actualWeather = [ActualWeatherMapper actualWeatherFromManagedObject:weakself.actualWeatherManaged];
         
         if (completionBlock) {
