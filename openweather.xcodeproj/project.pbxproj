@@ -28,6 +28,8 @@
 		E210CB4E1C244599002B7B2A /* NSError+OWMErrors.m in Sources */ = {isa = PBXBuildFile; fileRef = E210CB4D1C244599002B7B2A /* NSError+OWMErrors.m */; };
 		E210CB511C246165002B7B2A /* OWMWebServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E210CB501C246165002B7B2A /* OWMWebServiceTests.m */; };
 		E210CB571C248276002B7B2A /* openweather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E210CB551C248276002B7B2A /* openweather.xcdatamodeld */; };
+		E240D7A41C2851560035A342 /* ActualWeatherTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */; };
+		E240D7A71C28642F0035A342 /* ForecastViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7A61C28642F0035A342 /* ForecastViewCell.m */; };
 		E26229B11C26C16A00101017 /* _ActualWeatherManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */; };
 		E26229B21C26C16A00101017 /* _ForecastManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AC1C26C16A00101017 /* _ForecastManaged.m */; };
 		E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */; };
@@ -97,6 +99,10 @@
 		E210CB4F1C24547E002B7B2A /* OWMNetworkingErrors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OWMNetworkingErrors.h; sourceTree = "<group>"; };
 		E210CB501C246165002B7B2A /* OWMWebServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OWMWebServiceTests.m; sourceTree = "<group>"; };
 		E210CB561C248276002B7B2A /* openweather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = openweather.xcdatamodel; sourceTree = "<group>"; };
+		E240D7A21C2851560035A342 /* ActualWeatherTableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeatherTableManager.h; sourceTree = "<group>"; };
+		E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherTableManager.m; sourceTree = "<group>"; };
+		E240D7A51C28642F0035A342 /* ForecastViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewCell.h; sourceTree = "<group>"; };
+		E240D7A61C28642F0035A342 /* ForecastViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewCell.m; sourceTree = "<group>"; };
 		E26229A91C26C16A00101017 /* _ActualWeatherManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ActualWeatherManaged.h; sourceTree = "<group>"; };
 		E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ActualWeatherManaged.m; sourceTree = "<group>"; };
 		E26229AB1C26C16A00101017 /* _ForecastManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ForecastManaged.h; sourceTree = "<group>"; };
@@ -281,9 +287,13 @@
 		E26EA7E31C270F1500B58009 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E240D7A21C2851560035A342 /* ActualWeatherTableManager.h */,
+				E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */,
 				E26EA7FA1C2774D500B58009 /* ActualWeatherViewInterface.h */,
 				E26EA7FB1C27750C00B58009 /* ActualWeatherViewController.h */,
 				E26EA7FC1C27750C00B58009 /* ActualWeatherViewController.m */,
+				E240D7A51C28642F0035A342 /* ForecastViewCell.h */,
+				E240D7A61C28642F0035A342 /* ForecastViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -792,7 +802,9 @@
 				E26EA7D81C26FCA800B58009 /* CoreDataStore.m in Sources */,
 				E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */,
 				E210CB4B1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m in Sources */,
+				E240D7A71C28642F0035A342 /* ForecastViewCell.m in Sources */,
 				E210CB4E1C244599002B7B2A /* NSError+OWMErrors.m in Sources */,
+				E240D7A41C2851560035A342 /* ActualWeatherTableManager.m in Sources */,
 				E26229B41C26C16A00101017 /* ForecastManaged.m in Sources */,
 				E26EA7F41C272CEB00B58009 /* ActualWeatherMapper.m in Sources */,
 				E2ED91461C22C6A300DE48BA /* JSONCity.m in Sources */,

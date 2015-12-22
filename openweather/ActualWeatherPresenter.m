@@ -7,15 +7,16 @@
 //
 
 #import "ActualWeatherPresenter.h"
+#import "ActualWeatherViewInterface.h"
 
 @implementation ActualWeatherPresenter
 
 - (void)foundUpActualWeather:(id)actualWeather {
-    NSLog(@"%@",actualWeather);
+    [self.view updateViewWithActualWeather:actualWeather];
 }
 
 - (void)foundUpForecast:(NSArray *)forecast {
-    NSLog(@"%@",forecast);
+    [self.view updateViewWithForecast:forecast];
 }
 
 - (void)actualWeatherFailWithError:(NSError *)error {

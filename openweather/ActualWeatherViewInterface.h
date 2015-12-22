@@ -10,4 +10,7 @@
 
 @protocol ActualWeatherViewInterface <NSObject>
 
+- (void)updateViewWithActualWeather:(id)actualWeather;
+- (void)updateViewWithForecast:(NSArray *)forecast;
+
 @end

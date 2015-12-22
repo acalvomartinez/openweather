@@ -32,12 +32,6 @@
     return self;
 }
 
-
-- (void)installRootViewControllerIntoWindow:(UIWindow *)window {
-    
-    [self.actualWeatherWireframe presentActualWeatherInterfaceFromWindow:window];
-}
-
 - (void)configureDependencies
 {
     ActualWeatherWireframe *actualWeatherWireframe = [[ActualWeatherWireframe alloc] init];
@@ -51,6 +45,11 @@
     actualWeatherWireframe.presenter = actualWeatherPresenter;
     
     self.actualWeatherWireframe = actualWeatherWireframe;
+}
+
+- (void)installRootViewControllerIntoWindow:(UIWindow *)window {
+    
+    [self.actualWeatherWireframe presentActualWeatherInterfaceFromWindow:window];
 }
 
 @end
