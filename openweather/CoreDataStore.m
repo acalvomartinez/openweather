@@ -82,6 +82,7 @@
                                                    parentError:nil];
                 
                 errorBlock(error);
+                return;
             }
         }
         
@@ -123,12 +124,6 @@
     [objectManaged setWindDirectionValue:JSONObject.weather.windDirection];
     [objectManaged setWindSpeedValue:JSONObject.weather.windSpeed];
     [objectManaged setCloudinessValue:JSONObject.weather.cloudiness];
-    
-    [self saveOnError:^(NSError *error) {
-        if (error) {
-            errorBlock(error);
-        }
-    }];
 }
 
 - (void)updateActualWeatherManaged:(ActualWeatherManaged *)objectManaged

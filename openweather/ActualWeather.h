@@ -10,6 +10,7 @@
 
 static NSString * const DetailWeatherValueKey = @"value";
 static NSString * const DetailWeatherDescriptionKey = @"description";
+static NSString * const DetailWeatherUnitsKey = @"units";
 
 @class Forecast;
 

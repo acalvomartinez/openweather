@@ -13,9 +13,9 @@
 + (instancetype)blankWeather {
     ActualWeather *blankWeather = [[ActualWeather alloc] init];
     
-    blankWeather.cityName = @"Location";
+    blankWeather.cityName = @"";
     blankWeather.weatherIcon = @"";
-    blankWeather.weatherCondition = @"Weather Condition";
+    blankWeather.weatherCondition = @"";
     
     return blankWeather;
 }

@@ -20,7 +20,7 @@
 }
 
 - (void)actualWeatherFailWithError:(NSError *)error {
-    NSLog(@"%@",error);
+    [self.view showError:error];
 }
 
 - (void)updateView {

@@ -18,4 +18,6 @@ typedef enum {
 + (float)convertKelvinToCelsius:(float)kelvin;
 + (float)convertKelvinToFahrenheit:(float)kelvin;
 
++ (NSString *)windDirectionUnitsIn:(UnitType)unit;
+
 @end

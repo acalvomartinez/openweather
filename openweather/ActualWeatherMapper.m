@@ -31,7 +31,8 @@
     
     for (NSString *key in [self detailWeatherSortedKeys]) {
         if ([object valueForKey:key]) {
-            NSDictionary *detail = @{DetailWeatherDescriptionKey: [[self detailWeathersKeys] valueForKey:key], DetailWeatherValueKey:[object valueForKey:key]};
+            NSDictionary *info = [[self detailWeathersKeys] valueForKey:key];
+            NSDictionary *detail = @{DetailWeatherDescriptionKey: [info valueForKey:DetailWeatherDescriptionKey], DetailWeatherUnitsKey: [info valueForKey:DetailWeatherUnitsKey], DetailWeatherValueKey:[object valueForKey:key]};
             [detailWeatherData addObject:detail];
         }
     }
@@ -85,15 +86,15 @@
 }
 
 + (NSDictionary *)detailWeathersKeys {
-    return @{@"sunrise" : @"Sunrise",
-             @"sunset" : @"Sunset",
-             @"pressure" : @"Pressure",
-             @"humidity" : @"Humidity",
-             @"windSpeed" : @"Wind Speed",
-             @"windDirection" : @"Wind Direction",
-             @"cloudiness" : @"Cloudiness",
-             @"rain3h" : @"Rain 3h",
-             @"snow3h" : @"Snow 3h"};
+    return @{@"sunrise" : @{ DetailWeatherDescriptionKey: @"Sunrise", DetailWeatherUnitsKey: @"h" },
+             @"sunset" : @{ DetailWeatherDescriptionKey: @"Sunset", DetailWeatherUnitsKey: @"h" },
+             @"pressure" : @{ DetailWeatherDescriptionKey: @"Pressure", DetailWeatherUnitsKey: @"hPa" },
+             @"humidity" : @{ DetailWeatherDescriptionKey: @"Humidity", DetailWeatherUnitsKey: @"%" },
+             @"windSpeed" : @{ DetailWeatherDescriptionKey: @"Wind Speed", DetailWeatherUnitsKey: [UnitsHelper windDirectionUnitsIn:[PreferencesManager units]] },
+             @"windDirection" : @{ DetailWeatherDescriptionKey: @"Wind Direction", DetailWeatherUnitsKey: @"degrees" },
+             @"cloudiness" : @{ DetailWeatherDescriptionKey: @"Cloudiness", DetailWeatherUnitsKey: @"%" },
+             @"rain3h" : @{ DetailWeatherDescriptionKey: @"Rain 3h", DetailWeatherUnitsKey: @"" },
+             @"snow3h" : @{ DetailWeatherDescriptionKey: @"Snow 3h", DetailWeatherUnitsKey: @"" }};
 }
 
 

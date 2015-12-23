@@ -22,11 +22,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *maxTemperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *minTemperatureLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
+@property (weak, nonatomic) IBOutlet UILabel *degreeLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @property (nonatomic, strong) ActualWeatherTableManager *tableManager;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottonTrailingConstrain;
 
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (nonatomic, strong) NSString *backgroundImageName;
+
 @end
 
 @implementation ActualWeatherViewController
@@ -47,23 +52,18 @@
     
     self.tableManager = [[ActualWeatherTableManager alloc] initWithTableView:self.tableView andDelegate:self];
     
+    self.headerView.alpha = 0;
+    self.tableView.alpha = 0;
+    self.backgroundImageName = @"";
+    self.backgroundImageView.alpha = 0;
 }
 
 - (IBAction)loadPressed:(id)sender {
     [self.presenter updateView];
 }
 
-- (void)updateViewWithActualWeather:(ActualWeather *)actualWeather {
-    [self updateActualWeatherLabelsWith:actualWeather];
+- (void)updateActualWeatherViewsWith:(ActualWeather *)actualWeather {
     
-    [self.tableManager updateActualWeather:actualWeather];
-}
-
-- (void)updateViewWithForecast:(NSArray *)forecast {
-    [self.tableManager updateForecast:forecast];
-}
-
-- (void)updateActualWeatherLabelsWith:(ActualWeather *)actualWeather {
     self.locationLabel.text = actualWeather.cityName;
     self.conditionLabel.text = actualWeather.weatherCondition;
     self.temperatureLabel.text = [NSString stringWithFormat:@"%d", (int)ceil(actualWeather.temperature)];
@@ -71,11 +71,54 @@
     self.minTemperatureLabel.text = [NSString stringWithFormat:@"%d", (int)ceil(actualWeather.minTemperature)];
     self.dayLabel.text = [actualWeather.date dayOfTheWeek];
     
-    self.backgroundImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"background-%@", actualWeather.weatherIcon]];
+    NSString *imageName = [NSString stringWithFormat:@"background-%@", actualWeather.weatherIcon];
+    
+    [self presentInterfaceWithBackgroundImage:imageName];
+}
+
+- (void)presentInterfaceWithBackgroundImage:(NSString *)imageName {
+    if (![self.backgroundImageName isEqualToString:imageName]) {
+        self.backgroundImageView.image = [UIImage imageNamed:imageName];
+        
+        [UIView animateWithDuration:0.8 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.backgroundImageView.alpha = 1;
+            self.headerView.alpha = 1;
+            self.tableView.alpha = 1;
+        } completion:^(BOOL finished) {
+            self.backgroundImageName = imageName;
+        }];
+    }
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - Public Interface
+
+- (void)updateViewWithActualWeather:(ActualWeather *)actualWeather {
+    if (actualWeather != nil) {
+        [self updateActualWeatherViewsWith:actualWeather];
+        
+        [self.tableManager updateActualWeather:actualWeather];
+    }
+}
+
+- (void)updateViewWithForecast:(NSArray *)forecast {
+    if (forecast != nil) {
+        [self.tableManager updateForecast:forecast];
+    }
+}
+
+- (void)showError:(NSError *)error {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Open Weather" message:error.description preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+        [alert dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 
@@ -87,6 +130,7 @@
     self.maxTemperatureLabel.alpha = 1 - (value / 100);
     self.minTemperatureLabel.alpha = 1 - (value / 100);
     self.dayLabel.alpha = 1 - (value / 100);
+    self.degreeLabel.alpha = 1 - (value / 100);
     
     self.bottonTrailingConstrain.constant = 10 + value;
     [self.view updateConstraints];

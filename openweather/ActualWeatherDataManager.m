@@ -74,7 +74,6 @@
          forecastCompletionBlock:(ForecastFecthBlock _Nullable)forecastCompletionBlock
                       errorBlock:(ErrorBlock)errorBlock {
     
-    if (self.actualWeatherManaged) {
         [self updateActualWeatherLocation:coordinate
              actualWeatherCompletionBlock:^(ActualWeather * _Nullable actualWeather) {
                  if (actualWeatherCompletionBlock) {
@@ -89,7 +88,7 @@
                      errorBlock(error);
                  }
              }];
-    }
+    
 }
 
 
@@ -105,32 +104,40 @@
     [self.owmClient actualWeatherInLatitude:coordinate.latitude
                                   longitude:coordinate.longitude
                                     success:^(NSDictionary * _Nullable jsonDictionary) {
+                                        
                                         [weakself updateWithJSONActualWeather:jsonDictionary
                                                               completionBlock:actualWeatherCompletionBlock
                                                                    errorBlock:errorBlock];
+                                        
+                                        [weakself.owmClient forecastInLatitude:coordinate.latitude
+                                                                 longitude:coordinate.longitude
+                                                                      days:6
+                                                                   success:^(NSDictionary * _Nullable jsonDictionary) {
+                                                                       [weakself updateWithJSONForecast:jsonDictionary
+                                                                                        completionBlock:forecastCompletionBlock
+                                                                                             errorBlock:errorBlock];
+                                                                   } failure:^(NSError * _Nullable error) {
+                                                                       if (errorBlock) {
+                                                                           errorBlock(error);
+                                                                       }
+                                                                   }];
+                                    
                                     } failure:^(NSError * _Nullable error) {
                                         if (errorBlock) {
                                             errorBlock(error);
                                         }
                                     }];
     
-    [self.owmClient forecastInLatitude:coordinate.latitude
-                             longitude:coordinate.longitude
-                                  days:6
-                               success:^(NSDictionary * _Nullable jsonDictionary) {
-                                   [weakself updateWithJSONForecast:jsonDictionary
-                                                    completionBlock:forecastCompletionBlock
-                                                         errorBlock:errorBlock];
-                               } failure:^(NSError * _Nullable error) {
-                                   if (errorBlock) {
-                                       errorBlock(error);
-                                   }
-                               }];
+    
 }
 
 - (void)updateWithJSONActualWeather:(NSDictionary *)jsonDictionary
                     completionBlock:(ActualWeatherFecthBlock)completionBlock
                          errorBlock:(ErrorBlock)errorBlock {
+    
+    if (!self.actualWeatherManaged) {
+        self.actualWeatherManaged = [self.dataStore newActualWeather];
+    }
     
     __weak ActualWeatherDataManager *weakself = self;
     
@@ -143,18 +150,18 @@
                                               errorBlock(error);
                                           }
                                       }];
-        
         ActualWeather *actualWeather = [ActualWeatherMapper actualWeatherFromManagedObject:weakself.actualWeatherManaged];
-        
-        if (completionBlock) {
-            completionBlock(actualWeather);
-        }
         
         [weakself.dataStore saveOnError:^(NSError *error) {
             if (errorBlock) {
                 errorBlock(error);
             }
         }];
+        
+        if (completionBlock) {
+            completionBlock(actualWeather);
+        }
+        
     } onError:^(NSError *error) {
         if (errorBlock) {
             errorBlock(error);
@@ -169,13 +176,14 @@
     
     [JSONParser parseForecastJSONDictionary:jsonDictionary completion:^(NSArray<JSONForecast *> *forecastJSON) {
         
-        [weakself.dataStore updateActualWeatherManaged:weakself.actualWeatherManaged
+        [weakself.dataStore updateActualWeatherManaged:self.actualWeatherManaged
                                       withJSONForecast:forecastJSON
                                                onError:^(NSError *error) {
                                           if (errorBlock) {
                                               errorBlock(error);
                                           }
                                       }];
+        
         ActualWeather *actualWeather = [ActualWeatherMapper actualWeatherFromManagedObject:weakself.actualWeatherManaged];
         
         if (completionBlock) {

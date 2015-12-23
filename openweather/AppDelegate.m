@@ -21,12 +21,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [PreferencesManager setUnits:UnitTypeMetric];
+    
     AppDependencies *dependencies = [[AppDependencies alloc] init];
     self.dependencies = dependencies;
     
     [self.dependencies installRootViewControllerIntoWindow:self.window];
-    
-    [PreferencesManager setUnits:UnitTypeMetric];
     
     return YES;
 }

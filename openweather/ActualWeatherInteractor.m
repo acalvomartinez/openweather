@@ -46,14 +46,7 @@
         [weakself.output foundUpActualWeather:actualWeather];
     } errorBlock:^(NSError * _Nullable error) {
         if (error.code == CoreDataStoreActualWeatherNotExists) {
-            
-            [weakself.dataManager createActualWeatherManagedOnErrorBlock:^(NSError * _Nullable error) {
-                [weakself.output actualWeatherFailWithError:error];
-            }];
-            
-            ActualWeather *blankWeather = [ActualWeather blankWeather];
-            
-            [weakself.output foundUpActualWeather:blankWeather];
+            [weakself.output foundUpActualWeather:nil];
         }
     }];
 }

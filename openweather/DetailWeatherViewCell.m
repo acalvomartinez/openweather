@@ -35,6 +35,8 @@
         value = [NSString stringWithFormat:@"%.2f", [[detail valueForKey:DetailWeatherValueKey] floatValue]];
     }
     
+    value = [NSString stringWithFormat:@"%@ %@", value, [detail valueForKey:DetailWeatherUnitsKey]];
+    
     self.valueLabel.text = value;
 }
 

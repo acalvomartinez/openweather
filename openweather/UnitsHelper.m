@@ -18,4 +18,12 @@
     return kelvin * 9/5 - 459.67;
 }
 
++ (NSString *)windDirectionUnitsIn:(UnitType)unit {
+    return [self.windDirectionUnits objectForKey:@(unit)];
+}
+
+
++ (NSDictionary *)windDirectionUnits {
+    return @{@(UnitTypeMetric):@"meter/sec",@(UnitTypeImperial):@"miles/hour"};
+}
 @end
