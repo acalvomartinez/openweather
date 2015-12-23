@@ -2,7 +2,10 @@
 ##Code Challenge
 
 
-El ejercicio consiste en crear una aplicación iOS (Objective-C/Swift) que nos permita obtener el tiempo actual, junto al pronóstico para los próximos cinco días, a partir de nuestra localización. Para ello se hará uso de OpenWeather API (http://openweathermap.org/API). Los resultados serán listado en una tabla y deben de ser accesibles incluso cuando no haya conexión a la red (puedes hacer uso del mecanismo de persistencia que prefieras). Se valorará también la correcta gestión de errores y cualquier función adicional.
+An application in Objective C allows access to wheater data and 5 days forecast, using geolocation data. The access to weather service is done throught OpenWeather API (http://openweathermap.org/API). The result will be presented on a tableview. Core Data is used as persistence manager.
+
+###Installing
+Run *'pod install'*
 ##OpenWeatherMap API
 ###Actual weather by geographical cordinates
 <http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139>
