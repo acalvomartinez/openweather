@@ -9,7 +9,7 @@
 @implementation ActualWeatherManaged
 
 -(NSArray *)sortedForecast {
-    NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+    NSSortDescriptor *sortNameDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
     NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortNameDescriptor, nil];
     
     return [[self.forecast allObjects] sortedArrayUsingDescriptors:sortDescriptors];

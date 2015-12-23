@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "AppDependencies.h"
 
+#import "PreferencesManager.h"
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) AppDependencies *dependencies;
@@ -23,6 +25,8 @@
     self.dependencies = dependencies;
     
     [self.dependencies installRootViewControllerIntoWindow:self.window];
+    
+    [PreferencesManager setUnits:UnitTypeMetric];
     
     return YES;
 }

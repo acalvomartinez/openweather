@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const DetailWeatherValueKey = @"value";
+static NSString * const DetailWeatherDescriptionKey = @"description";
+
 @class Forecast;
 
 @interface ActualWeather : NSObject
@@ -21,15 +24,8 @@
 @property (nonatomic, assign) float temperature;
 @property (nonatomic, assign) float maxTemperature;
 @property (nonatomic, assign) float minTemperature;
-@property (nonatomic, assign) float pressure;
-@property (nonatomic, assign) float humidity;
 
-@property (nonatomic, assign) float windSpeed;
-@property (nonatomic, assign) float windDirection;
-@property (nonatomic, assign) float cloudiness;
-@property (nonatomic, assign) float rain3h;
-@property (nonatomic, assign) float snow3h;
-
+@property (nonatomic, strong) NSArray <NSDictionary *> *detail;
 @property (nonatomic, strong) NSArray <Forecast *> *forecast;
 
 + (instancetype)blankWeather;

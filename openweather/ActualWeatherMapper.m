@@ -12,8 +12,9 @@
 #import "Forecast.h"
 #import "ForecastManaged.h"
 
-@implementation ActualWeatherMapper
+#import "PreferencesManager.h"
 
+@implementation ActualWeatherMapper
 
 + (ActualWeather *)actualWeatherFromManagedObject:(ActualWeatherManaged *)object {
     ActualWeather *actualWeather = [[ActualWeather alloc] init];
@@ -22,23 +23,26 @@
     actualWeather.cityName = object.cityName;
     actualWeather.weatherCondition = object.weatherCondition;
     actualWeather.weatherIcon = object.icon;
-    actualWeather.temperature = object.temperatureValue;
-    actualWeather.maxTemperature = object.maxTemperatureValue;
-    actualWeather.minTemperature = object.minTemperatureValue;
-    actualWeather.pressure = object.pressureValue;
-    actualWeather.humidity = object.humidityValue;
-    actualWeather.windSpeed = object.windSpeedValue;
-    actualWeather.windDirection = object.windDirectionValue;
-    actualWeather.cloudiness = object.cloudinessValue;
-    actualWeather.rain3h = object.rain3hValue;
-    actualWeather.snow3h = object.snow3hValue;
+    actualWeather.temperature = [self conversion:object.temperatureValue];
+    actualWeather.maxTemperature = [self conversion:object.maxTemperatureValue];
+    actualWeather.minTemperature = [self conversion:object.minTemperatureValue];
+    
+    NSMutableArray *detailWeatherData = [NSMutableArray array];
+    
+    for (NSString *key in [self detailWeatherSortedKeys]) {
+        if ([object valueForKey:key]) {
+            NSDictionary *detail = @{DetailWeatherDescriptionKey: [[self detailWeathersKeys] valueForKey:key], DetailWeatherValueKey:[object valueForKey:key]};
+            [detailWeatherData addObject:detail];
+        }
+    }
+    
+    
+    actualWeather.detail = detailWeatherData;
     
     NSMutableArray *actualWeatherForecast = [NSMutableArray arrayWithCapacity:[object.forecast count]];
     
     for (ForecastManaged *forecastManaged in [object sortedForecast]) {
-        
         Forecast *forecast = [self forecastFromManagedObject:forecastManaged];
-        
         [actualWeatherForecast addObject:forecast];
     }
     
@@ -53,12 +57,45 @@
     forecast.date = object.date;
     forecast.weatherCondition = object.weatherCondition;
     forecast.weatherIcon = object.icon;
-    forecast.maxTemperature = object.maxTemperatureValue;
-    forecast.minTemperature = object.minTemperatureValue;
+    forecast.maxTemperature = [self conversion:object.maxTemperatureValue];
+    forecast.minTemperature = [self conversion:object.minTemperatureValue];
     forecast.pressure = object.pressureValue;
     forecast.humidity = object.humidityValue;
     
     return forecast;
 }
+
+
+#pragma mark - Private
+
++ (float)conversion:(float)input {
+    if ([PreferencesManager units] == UnitTypeMetric) {
+        return [UnitsHelper convertKelvinToCelsius:input];
+    }
+    
+    if ([PreferencesManager units] == UnitTypeImperial) {
+        return [UnitsHelper convertKelvinToFahrenheit:input];
+    }
+    
+    return input;
+}
+
++ (NSArray *)detailWeatherSortedKeys {
+    return @[@"sunrise", @"sunset", @"humidity", @"pressure", @"cloudiness", @"windSpeed", @"windDirection", @"rain3h", @"snow3h"];
+}
+
++ (NSDictionary *)detailWeathersKeys {
+    return @{@"sunrise" : @"Sunrise",
+             @"sunset" : @"Sunset",
+             @"pressure" : @"Pressure",
+             @"humidity" : @"Humidity",
+             @"windSpeed" : @"Wind Speed",
+             @"windDirection" : @"Wind Direction",
+             @"cloudiness" : @"Cloudiness",
+             @"rain3h" : @"Rain 3h",
+             @"snow3h" : @"Snow 3h"};
+}
+
+
 
 @end

@@ -116,7 +116,7 @@
     
     [self.owmClient forecastInLatitude:coordinate.latitude
                              longitude:coordinate.longitude
-                                  days:5
+                                  days:6
                                success:^(NSDictionary * _Nullable jsonDictionary) {
                                    [weakself updateWithJSONForecast:jsonDictionary
                                                     completionBlock:forecastCompletionBlock

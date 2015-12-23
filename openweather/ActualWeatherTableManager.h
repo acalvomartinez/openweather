@@ -7,15 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @import UIKit;
 
-@class ActualWeatherViewController;
+@class ActualWeather;
+@class Forecast;
+
+@protocol ActualWeatherTableManagerDelegate <NSObject>
+
+- (void)updateHeaderWithValue:(CGFloat)value;
+
+@end
 
 @interface ActualWeatherTableManager : NSObject
 
-- (instancetype)initWithViewController:(ActualWeatherViewController *)view tableView:(UITableView *)tableView;
+- (instancetype)initWithTableView:(UITableView *)tableView andDelegate:(id <ActualWeatherTableManagerDelegate>)delegate;
 
-- (void)updateActualWeather:(id)actualWeather;
-- (void)updateForecast:(NSArray *)forecast;
+- (void)updateActualWeather:(ActualWeather *)actualWeather;
+- (void)updateForecast:(NSArray <Forecast *> *)forecast;
 
 @end

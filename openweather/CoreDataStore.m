@@ -137,7 +137,9 @@
     
     [objectManaged.forecastSet removeAllObjects];
     
-    for (JSONForecast *forecast in JSONObject) {
+    NSRange range = NSMakeRange(1,[JSONObject count]-1);
+    
+    for (JSONForecast *forecast in [JSONObject subarrayWithRange:range]) {
         [objectManaged.forecastSet addObject:[self forecastManagedFromJSONForecast:forecast]];
     }
     

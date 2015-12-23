@@ -18,3 +18,7 @@ static NSString * const OpenWeatherAPIKeyParameter = @"APPID";
 static NSString * const OpenWeatherMapDaysParameter = @"cnt";
 static NSString * const OpenWeatherMapLatParameter = @"lat";
 static NSString * const OpenWeatherMapLonParameter = @"lon";
+
+static NSString * const OpenWeatherMapUnitsParameter = @"units";
+static NSString * const OpenWeatherMapUnitMetrics = @"metrics";
+static NSString * const OpenWeatherMapUnitImperial = @"imperial";

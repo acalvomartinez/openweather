@@ -30,6 +30,11 @@
 		E210CB571C248276002B7B2A /* openweather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E210CB551C248276002B7B2A /* openweather.xcdatamodeld */; };
 		E240D7A41C2851560035A342 /* ActualWeatherTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */; };
 		E240D7A71C28642F0035A342 /* ForecastViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7A61C28642F0035A342 /* ForecastViewCell.m */; };
+		E240D7B01C2955A50035A342 /* DetailWeatherViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7AF1C2955A50035A342 /* DetailWeatherViewCell.m */; };
+		E240D7B41C296B830035A342 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7B31C296B830035A342 /* NSDate+Formatter.m */; };
+		E240D7BC1C29A56B0035A342 /* PreferencesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7BB1C29A56B0035A342 /* PreferencesManager.m */; };
+		E240D7BF1C29ABF50035A342 /* UnitsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7BE1C29ABF50035A342 /* UnitsHelper.m */; };
+		E240D7C51C2A19EE0035A342 /* ActualWeatherHeaderViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E240D7C41C2A19EE0035A342 /* ActualWeatherHeaderViewCell.m */; };
 		E26229B11C26C16A00101017 /* _ActualWeatherManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */; };
 		E26229B21C26C16A00101017 /* _ForecastManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AC1C26C16A00101017 /* _ForecastManaged.m */; };
 		E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */ = {isa = PBXBuildFile; fileRef = E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */; };
@@ -103,6 +108,16 @@
 		E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherTableManager.m; sourceTree = "<group>"; };
 		E240D7A51C28642F0035A342 /* ForecastViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForecastViewCell.h; sourceTree = "<group>"; };
 		E240D7A61C28642F0035A342 /* ForecastViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForecastViewCell.m; sourceTree = "<group>"; };
+		E240D7AE1C2955A50035A342 /* DetailWeatherViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailWeatherViewCell.h; sourceTree = "<group>"; };
+		E240D7AF1C2955A50035A342 /* DetailWeatherViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailWeatherViewCell.m; sourceTree = "<group>"; };
+		E240D7B21C296B830035A342 /* NSDate+Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Formatter.h"; sourceTree = "<group>"; };
+		E240D7B31C296B830035A342 /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
+		E240D7BA1C29A56B0035A342 /* PreferencesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesManager.h; sourceTree = "<group>"; };
+		E240D7BB1C29A56B0035A342 /* PreferencesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesManager.m; sourceTree = "<group>"; };
+		E240D7BD1C29ABF50035A342 /* UnitsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitsHelper.h; sourceTree = "<group>"; };
+		E240D7BE1C29ABF50035A342 /* UnitsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitsHelper.m; sourceTree = "<group>"; };
+		E240D7C31C2A19EE0035A342 /* ActualWeatherHeaderViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActualWeatherHeaderViewCell.h; sourceTree = "<group>"; };
+		E240D7C41C2A19EE0035A342 /* ActualWeatherHeaderViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActualWeatherHeaderViewCell.m; sourceTree = "<group>"; };
 		E26229A91C26C16A00101017 /* _ActualWeatherManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ActualWeatherManaged.h; sourceTree = "<group>"; };
 		E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ActualWeatherManaged.m; sourceTree = "<group>"; };
 		E26229AB1C26C16A00101017 /* _ForecastManaged.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ForecastManaged.h; sourceTree = "<group>"; };
@@ -210,6 +225,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E240D7B91C29A5570035A342 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				E240D7BA1C29A56B0035A342 /* PreferencesManager.h */,
+				E240D7BB1C29A56B0035A342 /* PreferencesManager.m */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 		E26229B51C26C17500101017 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,13 +311,17 @@
 		E26EA7E31C270F1500B58009 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E240D7A21C2851560035A342 /* ActualWeatherTableManager.h */,
-				E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */,
 				E26EA7FA1C2774D500B58009 /* ActualWeatherViewInterface.h */,
 				E26EA7FB1C27750C00B58009 /* ActualWeatherViewController.h */,
 				E26EA7FC1C27750C00B58009 /* ActualWeatherViewController.m */,
+				E240D7A21C2851560035A342 /* ActualWeatherTableManager.h */,
+				E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */,
 				E240D7A51C28642F0035A342 /* ForecastViewCell.h */,
 				E240D7A61C28642F0035A342 /* ForecastViewCell.m */,
+				E240D7AE1C2955A50035A342 /* DetailWeatherViewCell.h */,
+				E240D7AF1C2955A50035A342 /* DetailWeatherViewCell.m */,
+				E240D7C31C2A19EE0035A342 /* ActualWeatherHeaderViewCell.h */,
+				E240D7C41C2A19EE0035A342 /* ActualWeatherHeaderViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -431,6 +459,7 @@
 		E2ED913B1C21A98A00DE48BA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E240D7B91C29A5570035A342 /* Preferences */,
 				E26EA7F51C272CFB00B58009 /* Mappers */,
 				E2ED91681C242F6C00DE48BA /* WebService Client */,
 				E2ED91551C22F1CB00DE48BA /* Helpers */,
@@ -482,10 +511,14 @@
 		E2ED91551C22F1CB00DE48BA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E240D7BD1C29ABF50035A342 /* UnitsHelper.h */,
+				E240D7BE1C29ABF50035A342 /* UnitsHelper.m */,
 				E2D8D22B1C2791AD00312511 /* CoreLocationHelper.h */,
 				E2D8D22C1C2791AD00312511 /* CoreLocationHelper.m */,
 				E210CB4C1C244599002B7B2A /* NSError+OWMErrors.h */,
 				E210CB4D1C244599002B7B2A /* NSError+OWMErrors.m */,
+				E240D7B21C296B830035A342 /* NSDate+Formatter.h */,
+				E240D7B31C296B830035A342 /* NSDate+Formatter.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -796,9 +829,13 @@
 				E26EA7EE1C27137D00B58009 /* ActualWeatherInteractor.m in Sources */,
 				E2D8D22D1C2791AD00312511 /* CoreLocationHelper.m in Sources */,
 				E2ED91071C21869900DE48BA /* main.m in Sources */,
+				E240D7B41C296B830035A342 /* NSDate+Formatter.m in Sources */,
 				E26EA7F91C27744C00B58009 /* ActualWeatherPresenter.m in Sources */,
+				E240D7B01C2955A50035A342 /* DetailWeatherViewCell.m in Sources */,
+				E240D7BC1C29A56B0035A342 /* PreferencesManager.m in Sources */,
 				E26EA8001C27756C00B58009 /* ActualWeatherWireframe.m in Sources */,
 				E26229B11C26C16A00101017 /* _ActualWeatherManaged.m in Sources */,
+				E240D7C51C2A19EE0035A342 /* ActualWeatherHeaderViewCell.m in Sources */,
 				E26EA7D81C26FCA800B58009 /* CoreDataStore.m in Sources */,
 				E26229B31C26C16A00101017 /* ActualWeatherManaged.m in Sources */,
 				E210CB4B1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m in Sources */,
@@ -811,6 +848,7 @@
 				E2ED91531C22DB5500DE48BA /* JSONParser.m in Sources */,
 				E2ED91431C22C56600DE48BA /* JSONWeatherData.m in Sources */,
 				E26EA7D41C26F77500B58009 /* Forecast.m in Sources */,
+				E240D7BF1C29ABF50035A342 /* UnitsHelper.m in Sources */,
 				E2ED91491C22C77800DE48BA /* JSONForecast.m in Sources */,
 				E2ED91401C22BA5300DE48BA /* JSONActualWeather.m in Sources */,
 				E26EA7E81C270FEE00B58009 /* AppDependencies.m in Sources */,

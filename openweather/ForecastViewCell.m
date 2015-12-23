@@ -9,6 +9,8 @@
 #import "ForecastViewCell.h"
 #import "Forecast.h"
 
+#import "NSDate+Formatter.h"
+
 @interface ForecastViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -22,9 +24,11 @@
 @implementation ForecastViewCell
 
 - (void)setupWithForecast:(Forecast *)forecast {
-    self.maxTemperatureLabel.text = [NSString stringWithFormat:@"%.2f", forecast.maxTemperature];
-    self.minTemperatureLabel.text = [NSString stringWithFormat:@"%.2f", forecast.minTemperature];
-    self.dayLabel.text = [NSString stringWithFormat:@"%@", forecast.date];
+    self.maxTemperatureLabel.text = [NSString stringWithFormat:@"%d", (int)ceil(forecast.maxTemperature)];
+    self.minTemperatureLabel.text = [NSString stringWithFormat:@"%d", (int)ceil(forecast.minTemperature)];
+    self.dayLabel.text = [forecast.date dayOfTheWeek];
+    
+    self.iconImageView.image = [UIImage imageNamed:forecast.weatherIcon];
 }
 
 @end

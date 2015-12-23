@@ -10,7 +10,9 @@
 #import "ActualWeatherTableManager.h"
 #import "ActualWeather.h"
 
-@interface ActualWeatherViewController ()
+#import "NSDate+Formatter.h"
+
+@interface ActualWeatherViewController () <ActualWeatherTableManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -22,7 +24,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
 
 @property (nonatomic, strong) ActualWeatherTableManager *tableManager;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottonTrailingConstrain;
 
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @end
 
 @implementation ActualWeatherViewController
@@ -41,7 +45,8 @@
 - (void)commonSetup {
     [self.presenter requestLocationServiceAuthorization];
     
-    self.tableManager = [[ActualWeatherTableManager alloc] initWithViewController:self tableView:self.tableView];
+    self.tableManager = [[ActualWeatherTableManager alloc] initWithTableView:self.tableView andDelegate:self];
+    
 }
 
 - (IBAction)loadPressed:(id)sender {
@@ -61,10 +66,30 @@
 - (void)updateActualWeatherLabelsWith:(ActualWeather *)actualWeather {
     self.locationLabel.text = actualWeather.cityName;
     self.conditionLabel.text = actualWeather.weatherCondition;
-    self.temperatureLabel.text = [NSString stringWithFormat:@"%.2f", actualWeather.temperature];
-    self.maxTemperatureLabel.text = [NSString stringWithFormat:@"%.2f", actualWeather.maxTemperature];
-    self.minTemperatureLabel.text = [NSString stringWithFormat:@"%.2f", actualWeather.minTemperature];
-    self.dayLabel.text = [NSString stringWithFormat:@"%@", actualWeather.date];
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%d", (int)ceil(actualWeather.temperature)];
+    self.maxTemperatureLabel.text = [NSString stringWithFormat:@"%d", (int)ceil(actualWeather.maxTemperature)];
+    self.minTemperatureLabel.text = [NSString stringWithFormat:@"%d", (int)ceil(actualWeather.minTemperature)];
+    self.dayLabel.text = [actualWeather.date dayOfTheWeek];
+    
+    self.backgroundImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"background-%@", actualWeather.weatherIcon]];
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+
+#pragma mark - TableViewManager Delegate
+
+- (void)updateHeaderWithValue:(CGFloat)value {
+    
+    self.temperatureLabel.alpha = 1 - (value / 100);
+    self.maxTemperatureLabel.alpha = 1 - (value / 100);
+    self.minTemperatureLabel.alpha = 1 - (value / 100);
+    self.dayLabel.alpha = 1 - (value / 100);
+    
+    self.bottonTrailingConstrain.constant = 10 + value;
+    [self.view updateConstraints];
 }
 
 @end
