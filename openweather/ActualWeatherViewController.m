@@ -110,11 +110,16 @@
     }
 }
 
-- (void)showError:(NSError *)error {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Open Weather" message:error.description preferredStyle:UIAlertControllerStyleAlert];
+- (void)showErrorWithMessage:(NSString *)message {
+    
+    __weak ActualWeatherViewController *weakself = self;
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Open Weather" message:message preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
         [alert dismissViewControllerAnimated:YES completion:nil];
+        
+        [weakself.presenter updateView];
         
     }];
     [alert addAction:ok];

@@ -20,7 +20,10 @@
 }
 
 - (void)actualWeatherFailWithError:(NSError *)error {
-    [self.view showError:error];
+    
+    NSDictionary *info = [error userInfo];
+    NSString *message = [info objectForKey:NSLocalizedDescriptionKey];
+    [self.view showErrorWithMessage:message];
 }
 
 - (void)updateView {
