@@ -12,6 +12,6 @@
 
 - (void)updateViewWithActualWeather:(id)actualWeather;
 - (void)updateViewWithForecast:(NSArray *)forecast;
-- (void)showError:(NSError *)error;
+- (void)showErrorWithMessage:(NSString *)message;
 
 @end
