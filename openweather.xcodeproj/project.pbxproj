@@ -231,7 +231,7 @@
 				E240D7BA1C29A56B0035A342 /* PreferencesManager.h */,
 				E240D7BB1C29A56B0035A342 /* PreferencesManager.m */,
 			);
-			name = Preferences;
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		E26229B51C26C17500101017 /* Entities */ = {
@@ -243,13 +243,12 @@
 				E26EA7D21C26F77500B58009 /* Forecast.h */,
 				E26EA7D31C26F77500B58009 /* Forecast.m */,
 			);
-			name = Entities;
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		E26EA7CE1C26F74D00B58009 /* Managed */ = {
 			isa = PBXGroup;
 			children = (
-				E210CB551C248276002B7B2A /* openweather.xcdatamodeld */,
 				E26229AD1C26C16A00101017 /* ActualWeatherManaged.h */,
 				E26229AE1C26C16A00101017 /* ActualWeatherManaged.m */,
 				E26229AF1C26C16A00101017 /* ForecastManaged.h */,
@@ -258,8 +257,9 @@
 				E26229AA1C26C16A00101017 /* _ActualWeatherManaged.m */,
 				E26229AB1C26C16A00101017 /* _ForecastManaged.h */,
 				E26229AC1C26C16A00101017 /* _ForecastManaged.m */,
+				E210CB551C248276002B7B2A /* openweather.xcdatamodeld */,
 			);
-			name = Managed;
+			path = Managed;
 			sourceTree = "<group>";
 		};
 		E26EA7DE1C270E5C00B58009 /* Application Logic */ = {
@@ -268,7 +268,7 @@
 				E26EA7E51C270F8600B58009 /* Interactor */,
 				E26EA7E91C27116100B58009 /* Manager */,
 			);
-			name = "Application Logic";
+			path = "Application Logic";
 			sourceTree = "<group>";
 		};
 		E26EA7DF1C270E7B00B58009 /* Module interface */ = {
@@ -276,7 +276,7 @@
 			children = (
 				E26EA7F61C2773F500B58009 /* ActualWeatherModuleInterface.h */,
 			);
-			name = "Module interface";
+			path = "Module interface";
 			sourceTree = "<group>";
 		};
 		E26EA7E01C270ECF00B58009 /* Actual Weather */ = {
@@ -286,7 +286,7 @@
 				E26EA7DF1C270E7B00B58009 /* Module interface */,
 				E26EA7E11C270EF500B58009 /* User Interface */,
 			);
-			name = "Actual Weather";
+			path = "Actual Weather";
 			sourceTree = "<group>";
 		};
 		E26EA7E11C270EF500B58009 /* User Interface */ = {
@@ -296,7 +296,7 @@
 				E26EA7E31C270F1500B58009 /* View */,
 				E26EA7E41C270F2100B58009 /* Wireframe */,
 			);
-			name = "User Interface";
+			path = "User Interface";
 			sourceTree = "<group>";
 		};
 		E26EA7E21C270F0100B58009 /* Presenter */ = {
@@ -305,25 +305,25 @@
 				E26EA7F71C27744C00B58009 /* ActualWeatherPresenter.h */,
 				E26EA7F81C27744C00B58009 /* ActualWeatherPresenter.m */,
 			);
-			name = Presenter;
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		E26EA7E31C270F1500B58009 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E26EA7FA1C2774D500B58009 /* ActualWeatherViewInterface.h */,
-				E26EA7FB1C27750C00B58009 /* ActualWeatherViewController.h */,
-				E26EA7FC1C27750C00B58009 /* ActualWeatherViewController.m */,
-				E240D7A21C2851560035A342 /* ActualWeatherTableManager.h */,
-				E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */,
-				E240D7A51C28642F0035A342 /* ForecastViewCell.h */,
-				E240D7A61C28642F0035A342 /* ForecastViewCell.m */,
-				E240D7AE1C2955A50035A342 /* DetailWeatherViewCell.h */,
-				E240D7AF1C2955A50035A342 /* DetailWeatherViewCell.m */,
 				E240D7C31C2A19EE0035A342 /* ActualWeatherHeaderViewCell.h */,
 				E240D7C41C2A19EE0035A342 /* ActualWeatherHeaderViewCell.m */,
+				E240D7A21C2851560035A342 /* ActualWeatherTableManager.h */,
+				E240D7A31C2851560035A342 /* ActualWeatherTableManager.m */,
+				E26EA7FB1C27750C00B58009 /* ActualWeatherViewController.h */,
+				E26EA7FC1C27750C00B58009 /* ActualWeatherViewController.m */,
+				E26EA7FA1C2774D500B58009 /* ActualWeatherViewInterface.h */,
+				E240D7AE1C2955A50035A342 /* DetailWeatherViewCell.h */,
+				E240D7AF1C2955A50035A342 /* DetailWeatherViewCell.m */,
+				E240D7A51C28642F0035A342 /* ForecastViewCell.h */,
+				E240D7A61C28642F0035A342 /* ForecastViewCell.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E26EA7E41C270F2100B58009 /* Wireframe */ = {
@@ -332,17 +332,17 @@
 				E26EA7FE1C27756C00B58009 /* ActualWeatherWireframe.h */,
 				E26EA7FF1C27756C00B58009 /* ActualWeatherWireframe.m */,
 			);
-			name = Wireframe;
+			path = Wireframe;
 			sourceTree = "<group>";
 		};
 		E26EA7E51C270F8600B58009 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				E26EA7EA1C27127000B58009 /* ActualWeatherInteractorIO.h */,
 				E26EA7EC1C27137D00B58009 /* ActualWeatherInteractor.h */,
 				E26EA7ED1C27137D00B58009 /* ActualWeatherInteractor.m */,
+				E26EA7EA1C27127000B58009 /* ActualWeatherInteractorIO.h */,
 			);
-			name = Interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		E26EA7E91C27116100B58009 /* Manager */ = {
@@ -351,7 +351,7 @@
 				E26EA7EF1C2714BA00B58009 /* ActualWeatherDataManager.h */,
 				E26EA7F01C2714BA00B58009 /* ActualWeatherDataManager.m */,
 			);
-			name = Manager;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		E26EA7F51C272CFB00B58009 /* Mappers */ = {
@@ -360,18 +360,18 @@
 				E26EA7F21C272CEB00B58009 /* ActualWeatherMapper.h */,
 				E26EA7F31C272CEB00B58009 /* ActualWeatherMapper.m */,
 			);
-			name = Mappers;
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 		E2ED90F91C21869900DE48BA = {
 			isa = PBXGroup;
 			children = (
+				3D115D9F550BF690D9280675 /* Frameworks */,
+				F9830D6BD05FB5D57F7204FC /* Pods */,
+				E2ED91031C21869900DE48BA /* Products */,
 				E2ED91041C21869900DE48BA /* openweather */,
 				E2ED911E1C21869A00DE48BA /* openweatherTests */,
 				E2ED91291C21869A00DE48BA /* openweatherUITests */,
-				E2ED91031C21869900DE48BA /* Products */,
-				F9830D6BD05FB5D57F7204FC /* Pods */,
-				3D115D9F550BF690D9280675 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,13 +388,13 @@
 		E2ED91041C21869900DE48BA /* openweather */ = {
 			isa = PBXGroup;
 			children = (
+				E2ED91391C21A91800DE48BA /* Classes */,
+				E2ED91381C21A8D800DE48BA /* Resources */,
+				E2ED91051C21869900DE48BA /* Supporting Files */,
 				E2ED91081C21869900DE48BA /* AppDelegate.h */,
 				E2ED91091C21869900DE48BA /* AppDelegate.m */,
 				E26EA7E61C270FEE00B58009 /* AppDependencies.h */,
 				E26EA7E71C270FEE00B58009 /* AppDependencies.m */,
-				E2ED91391C21A91800DE48BA /* Classes */,
-				E2ED91381C21A8D800DE48BA /* Resources */,
-				E2ED91051C21869900DE48BA /* Supporting Files */,
 			);
 			path = openweather;
 			sourceTree = "<group>";
@@ -405,14 +405,14 @@
 				E2ED91161C21869900DE48BA /* Info.plist */,
 				E2ED91061C21869900DE48BA /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		E2ED911E1C21869A00DE48BA /* openweatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				E2ED915D1C231EDC00DE48BA /* TestUtils */,
 				E2ED915A1C231DEE00DE48BA /* Stubs */,
+				E2ED915D1C231EDC00DE48BA /* TestUtils */,
 				E2ED91211C21869A00DE48BA /* Info.plist */,
 				E2ED91581C231DDB00DE48BA /* JSONParserTests.m */,
 				E210CB501C246165002B7B2A /* OWMWebServiceTests.m */,
@@ -423,8 +423,8 @@
 		E2ED91291C21869A00DE48BA /* openweatherUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E2ED912A1C21869A00DE48BA /* openweatherUITests.m */,
 				E2ED912C1C21869A00DE48BA /* Info.plist */,
+				E2ED912A1C21869A00DE48BA /* openweatherUITests.m */,
 			);
 			path = openweatherUITests;
 			sourceTree = "<group>";
@@ -432,11 +432,11 @@
 		E2ED91381C21A8D800DE48BA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E2ED910E1C21869900DE48BA /* Main.storyboard */,
-				E2ED91131C21869900DE48BA /* LaunchScreen.storyboard */,
 				E2ED91111C21869900DE48BA /* Assets.xcassets */,
+				E2ED91131C21869900DE48BA /* LaunchScreen.storyboard */,
+				E2ED910E1C21869900DE48BA /* Main.storyboard */,
 			);
-			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E2ED91391C21A91800DE48BA /* Classes */ = {
@@ -445,7 +445,7 @@
 				E2ED913B1C21A98A00DE48BA /* Common */,
 				E2ED913A1C21A92000DE48BA /* Modules */,
 			);
-			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		E2ED913A1C21A92000DE48BA /* Modules */ = {
@@ -453,84 +453,84 @@
 			children = (
 				E26EA7E01C270ECF00B58009 /* Actual Weather */,
 			);
-			name = Modules;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		E2ED913B1C21A98A00DE48BA /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				E240D7B91C29A5570035A342 /* Preferences */,
-				E26EA7F51C272CFB00B58009 /* Mappers */,
-				E2ED91681C242F6C00DE48BA /* WebService Client */,
 				E2ED91551C22F1CB00DE48BA /* Helpers */,
+				E26EA7F51C272CFB00B58009 /* Mappers */,
 				E2ED91501C22D6E600DE48BA /* Parser */,
+				E240D7B91C29A5570035A342 /* Preferences */,
 				E2ED913C1C21EA8600DE48BA /* Stores */,
+				E2ED91681C242F6C00DE48BA /* WebService Client */,
 			);
-			name = Common;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		E2ED913C1C21EA8600DE48BA /* Stores */ = {
 			isa = PBXGroup;
 			children = (
 				E26229B51C26C17500101017 /* Entities */,
-				E26EA7D51C26F81400B58009 /* DataStoreProtocol.h */,
 				E26EA7D61C26FCA800B58009 /* CoreDataStore.h */,
 				E26EA7D71C26FCA800B58009 /* CoreDataStore.m */,
 				E26EA7DC1C2705CA00B58009 /* CoreDataStoreErrors.h */,
+				E26EA7D51C26F81400B58009 /* DataStoreProtocol.h */,
 			);
-			name = Stores;
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		E2ED913D1C2207AC00DE48BA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E2ED91441C22C6A300DE48BA /* JSONCity.h */,
-				E2ED91451C22C6A300DE48BA /* JSONCity.m */,
-				E2ED91411C22C56600DE48BA /* JSONWeatherData.h */,
-				E2ED91421C22C56600DE48BA /* JSONWeatherData.m */,
-				E2ED91471C22C77800DE48BA /* JSONForecast.h */,
-				E2ED91481C22C77800DE48BA /* JSONForecast.m */,
 				E2ED913E1C22BA5300DE48BA /* JSONActualWeather.h */,
 				E2ED913F1C22BA5300DE48BA /* JSONActualWeather.m */,
+				E2ED91441C22C6A300DE48BA /* JSONCity.h */,
+				E2ED91451C22C6A300DE48BA /* JSONCity.m */,
+				E2ED91471C22C77800DE48BA /* JSONForecast.h */,
+				E2ED91481C22C77800DE48BA /* JSONForecast.m */,
+				E2ED91411C22C56600DE48BA /* JSONWeatherData.h */,
+				E2ED91421C22C56600DE48BA /* JSONWeatherData.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E2ED91501C22D6E600DE48BA /* Parser */ = {
 			isa = PBXGroup;
 			children = (
 				E2ED913D1C2207AC00DE48BA /* Model */,
+				E2ED91541C22E22600DE48BA /* JSONIdentifiers.h */,
 				E2ED91511C22DB5500DE48BA /* JSONParser.h */,
 				E2ED91521C22DB5500DE48BA /* JSONParser.m */,
 				E2ED91631C2328C300DE48BA /* JSONParserErrors.h */,
-				E2ED91541C22E22600DE48BA /* JSONIdentifiers.h */,
 			);
-			name = Parser;
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		E2ED91551C22F1CB00DE48BA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E240D7BD1C29ABF50035A342 /* UnitsHelper.h */,
-				E240D7BE1C29ABF50035A342 /* UnitsHelper.m */,
 				E2D8D22B1C2791AD00312511 /* CoreLocationHelper.h */,
 				E2D8D22C1C2791AD00312511 /* CoreLocationHelper.m */,
-				E210CB4C1C244599002B7B2A /* NSError+OWMErrors.h */,
-				E210CB4D1C244599002B7B2A /* NSError+OWMErrors.m */,
 				E240D7B21C296B830035A342 /* NSDate+Formatter.h */,
 				E240D7B31C296B830035A342 /* NSDate+Formatter.m */,
+				E210CB4C1C244599002B7B2A /* NSError+OWMErrors.h */,
+				E210CB4D1C244599002B7B2A /* NSError+OWMErrors.m */,
+				E240D7BD1C29ABF50035A342 /* UnitsHelper.h */,
+				E240D7BE1C29ABF50035A342 /* UnitsHelper.m */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E2ED915A1C231DEE00DE48BA /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
 				E2ED91611C23216700DE48BA /* ActualWeatherStubComplete.json */,
-				E2ED91641C236B1800DE48BA /* Forecast5DaysStub.json */,
 				E2ED91661C236B5300DE48BA /* Forecast16DaysStub.json */,
+				E2ED91641C236B1800DE48BA /* Forecast5DaysStub.json */,
 			);
-			name = Stubs;
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 		E2ED915D1C231EDC00DE48BA /* TestUtils */ = {
@@ -539,21 +539,21 @@
 				E2ED915E1C231EEE00DE48BA /* StubFileUtil.h */,
 				E2ED915F1C231EEE00DE48BA /* StubFileUtil.m */,
 			);
-			name = TestUtils;
+			path = TestUtils;
 			sourceTree = "<group>";
 		};
 		E2ED91681C242F6C00DE48BA /* WebService Client */ = {
 			isa = PBXGroup;
 			children = (
 				E2ED916A1C2430F500DE48BA /* OWMAPIWebServiceProtocol.h */,
+				E210CB4F1C24547E002B7B2A /* OWMNetworkingErrors.h */,
 				E210CB451C24339C002B7B2A /* OWMWebServiceClient.h */,
 				E210CB461C24339C002B7B2A /* OWMWebServiceClient.m */,
 				E210CB481C243B30002B7B2A /* OWMWebServiceConstants.h */,
 				E210CB491C243BB0002B7B2A /* OWMWebServiceRequestSerializer.h */,
 				E210CB4A1C243BB0002B7B2A /* OWMWebServiceRequestSerializer.m */,
-				E210CB4F1C24547E002B7B2A /* OWMNetworkingErrors.h */,
 			);
-			name = "WebService Client";
+			path = "WebService Client";
 			sourceTree = "<group>";
 		};
 		F9830D6BD05FB5D57F7204FC /* Pods */ = {
@@ -896,6 +896,7 @@
 				E2ED910F1C21869900DE48BA /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		E2ED91131C21869900DE48BA /* LaunchScreen.storyboard */ = {
@@ -904,6 +905,7 @@
 				E2ED91141C21869900DE48BA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1009,7 +1011,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = openweather/Info.plist;
+				INFOPLIST_FILE = "openweather/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unagistudio.openweather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1022,7 +1024,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = openweather/Info.plist;
+				INFOPLIST_FILE = "openweather/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.unagistudio.openweather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
